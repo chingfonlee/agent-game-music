@@ -1,0 +1,54 @@
+{
+  "item": {
+    "id": "04_sfx_pause_swap_bell",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 2.5,
+    "seed": 404,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "classic brass bicycle handlebar bell and trainer gear latch",
+      "crisp double ring ding-ding followed by a clean mechanical coasting click",
+      "bright polished brass bell and precision aluminum ratchet",
+      "clean studio UI sound effect, close mic, crisp transient"
+    ],
+    "post": {
+      "out_sr": 48000,
+      "trim_silence": true,
+      "normalize": "peak",
+      "peak_ceiling_db": -1.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "04_sfx_pause_swap_bell.zip",
+  "file_size_bytes": 708560,
+  "audio_duration_seconds": 2.46,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 0.91,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5292202496,
+  "peak_gpu_reserved_bytes": 5320474624,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "04_sfx_pause_swap_bell.wav": "62d4c54e4c2effc7e74fa9aa6988131e402c2dbeedab7dc1086a2f12b7536f3e"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: SFX, classic brass bicycle handlebar bell and trainer gear latch, crisp double ring ding-ding followed by a clean mechanical coasting click, bright polished brass bell and precision aluminum ratchet, clean studio UI sound effect, close mic, crisp transient.",
+  "post_info": {
+    "peak_normalize_gain_db": 4.37
+  },
+  "audio_stats": {
+    "peak": 0.891,
+    "peak_dbfs": -1.0,
+    "rms": 0.0304
+  }
+}

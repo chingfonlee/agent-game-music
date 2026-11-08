@@ -1,0 +1,113 @@
+[
+  {
+    "id": "01_sfx_countdown_3s",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 3.5,
+    "seed": 1101,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "electronic race start timer and metallic stadium horn",
+      "three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast",
+      "crisp digital timer synth and punchy metallic air horn",
+      "mountain race start gate, clean close studio mix, tight punchy transient"
+    ],
+    "qa": { "role": "countdown_sfx", "min_active_windows": 3 },
+    "post": { "out_sr": 48000, "trim_silence": true, "normalize": "peak", "peak_ceiling_db": -1.0, "format": "wav" }
+  },
+  {
+    "id": "02_bgm_main_loop_A",
+    "type": "generate",
+    "audio_type": "music",
+    "candidates": 3,
+    "duration_seconds": 24.6,
+    "bpm": 120,
+    "seed": 2202,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "High-energy melodic heavy metal game music starting immediately at full intensity with tight palm-muted galloping rhythm guitars, soaring melodic lead guitar riff, driving heavy bass and punchy double-kick drums, powerful and motivating",
+    "qa": {
+      "role": "bgm_loop",
+      "bar_seconds": 2.0,
+      "max_intro_drop_db": 2.5,
+      "max_sfx_zone_pct": 8.0,
+      "max_seam_jump": 0.02,
+      "inpaint_fix_prompt": "Full intensity heavy metal groove with punchy double-kick drums, driving heavy bass and tight palm-muted chugging rhythm guitars from beat one"
+    },
+    "post": { "out_sr": 48000, "target_lufs": -16.0, "target_loop_seconds": 24.0, "loop_crossfade_ms": 200.0, "format": "wav" }
+  },
+  {
+    "id": "03_bgm_main_loop_B",
+    "type": "generate",
+    "audio_type": "music",
+    "candidates": 3,
+    "duration_seconds": 24.6,
+    "bpm": 120,
+    "seed": 3303,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Driving industrial groove metal action game music at full intensity from beat one with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping heavy metal drums, relentless, muscular and rhythmic",
+    "qa": {
+      "role": "bgm_loop",
+      "bar_seconds": 2.0,
+      "max_intro_drop_db": 2.5,
+      "max_sfx_zone_pct": 8.0,
+      "max_seam_jump": 0.02,
+      "export_intro_segment": true,
+      "inpaint_fix_prompt": "Full intensity industrial groove metal with stomping four-on-the-floor drums, gritty synth bass and heavy drop-tuned rhythm guitar riff from beat one"
+    },
+    "post": { "out_sr": 48000, "target_lufs": -16.0, "target_loop_seconds": 24.0, "loop_crossfade_ms": 200.0, "format": "wav" }
+  },
+  {
+    "id": "04_sfx_pause_swap_bell",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 2.5,
+    "seed": 4404,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "metallic mountain bike handlebar bell and precision freehub ratchet",
+      "crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click",
+      "hardened steel bike bell and anodized aluminum pawl mechanism",
+      "clean studio UI sound effect, close mic, sharp clear transient"
+    ],
+    "qa": { "role": "bell_sfx" },
+    "post": { "out_sr": 48000, "trim_silence": true, "normalize": "peak", "peak_ceiling_db": -1.0, "format": "wav" }
+  },
+  {
+    "id": "05_bgm_pause_swap_stem_layer",
+    "type": "stem_layer",
+    "source_id": "02_bgm_main_loop_A",
+    "stem_weights": { "drums": 1.0, "bass": 1.0, "other": 0.25, "vocals": 0.0 },
+    "other_lowpass_hz": 2200.0,
+    "export_all_stems": true,
+    "qa": { "role": "bgm_stem_layer", "bar_seconds": 2.0 },
+    "post": { "out_sr": 48000, "target_lufs": -18.0, "format": "wav" }
+  },
+  {
+    "id": "06_bgm_finish_outro",
+    "type": "edit_continue",
+    "source_id": "02_bgm_main_loop_A",
+    "audio_type": "music",
+    "duration_seconds": 32.0,
+    "bpm": 120,
+    "seed": 6606,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Triumphant heavy metal victory finale with massive sustained power chords, soaring twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail",
+    "qa": {
+      "role": "bgm_outro",
+      "bar_seconds": 2.0,
+      "climax_start_sec": 24.0,
+      "climax_end_sec": 28.0,
+      "max_climax_drop_db": 3.5,
+      "min_climax_mid_pct": 20.0,
+      "max_sfx_zone_pct": 8.0
+    },
+    "post": { "out_sr": 48000, "target_lufs": -16.0, "fade_out_ms": 600.0, "format": "wav" }
+  }
+]

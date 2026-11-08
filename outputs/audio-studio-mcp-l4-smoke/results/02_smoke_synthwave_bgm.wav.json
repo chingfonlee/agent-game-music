@@ -1,0 +1,37 @@
+{
+  "item": {
+    "id": "02_smoke_synthwave_bgm",
+    "type": "generate",
+    "audio_type": "music",
+    "duration_seconds": 20.0,
+    "bpm": 100,
+    "seed": 42,
+    "prompt": "Synthwave track with warm analog pads, punchy gated drums and a shimmering arpeggiated lead, nostalgic and driving"
+  },
+  "pack_name": "02_smoke_synthwave_bgm.zip",
+  "file_size_bytes": 5292044,
+  "audio_duration_seconds": 20.0,
+  "sample_rate": 44100,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 1.0,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5338590720,
+  "peak_gpu_reserved_bytes": 5381292032,
+  "setup_timings": {
+    "git_clone_seconds": 5.82,
+    "uv_venv_install_seconds": 31.99,
+    "weight_download_seconds": 34.35
+  },
+  "files": {
+    "02_smoke_synthwave_bgm.wav": "99b0d6c0501f515c4ca2fbc3755cd39f1c8cf51ba7f1c2f911d6a7a866d1ee9b"
+  },
+  "model_load_wall_seconds": 34.97,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Synthwave track with warm analog pads, punchy gated drums and a shimmering arpeggiated lead, nostalgic and driving. BPM: 100.",
+  "audio_stats": {
+    "peak": 1.0,
+    "peak_dbfs": 0.0,
+    "rms": 0.2049
+  }
+}

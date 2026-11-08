@@ -1,0 +1,41 @@
+{
+  "item": {
+    "id": "03_smoke_synthwave_loop_lufs",
+    "type": "process",
+    "source_id": "02_smoke_synthwave_bgm",
+    "target_lufs": -16.0,
+    "loop_crossfade_ms": 200.0,
+    "out_sr": 48000
+  },
+  "pack_name": "03_smoke_synthwave_loop_lufs.zip",
+  "file_size_bytes": 5702444,
+  "audio_duration_seconds": 19.8,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 1.49,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5184380928,
+  "peak_gpu_reserved_bytes": 5207228416,
+  "setup_timings": {
+    "git_clone_seconds": 5.82,
+    "uv_venv_install_seconds": 31.99,
+    "weight_download_seconds": 34.35
+  },
+  "files": {
+    "03_smoke_synthwave_loop_lufs.wav": "3471b5735d7b198503ca5666b3019f4e2277f0cc5f1cafcdda3485903f2446f1"
+  },
+  "model_load_wall_seconds": 34.97,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "loudnorm_info": {
+    "input_lufs": -12.66,
+    "input_true_peak_db": 0.15,
+    "output_lufs": -15.93,
+    "loudnorm_mode": "linear"
+  },
+  "audio_stats": {
+    "peak": 0.69,
+    "peak_dbfs": -3.22,
+    "rms": 0.1396
+  }
+}

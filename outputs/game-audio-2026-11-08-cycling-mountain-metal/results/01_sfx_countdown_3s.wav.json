@@ -1,0 +1,115 @@
+{
+  "item": {
+    "id": "01_sfx_countdown_3s",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 3.5,
+    "seed": 1101,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "electronic race start timer and metallic stadium horn",
+      "three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast",
+      "crisp digital timer synth and punchy metallic air horn",
+      "mountain race start gate, clean close studio mix, tight punchy transient"
+    ],
+    "qa": {
+      "role": "countdown_sfx",
+      "min_active_windows": 3
+    },
+    "post": {
+      "out_sr": 48000,
+      "trim_silence": true,
+      "normalize": "peak",
+      "peak_ceiling_db": -1.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "01_sfx_countdown_3s.zip",
+  "file_size_bytes": 918128,
+  "audio_duration_seconds": 3.19,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 2.91,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5306110976,
+  "peak_gpu_reserved_bytes": 9263120384,
+  "setup_timings": {
+    "git_clone_seconds": 5.57,
+    "uv_venv_install_seconds": 33.1,
+    "weight_download_seconds": 34.08
+  },
+  "files": {
+    "01_sfx_countdown_3s.wav": "ec2a949393f2b34bcfee2fdfcab919b6001a58c2e3e3bdba203489a3fb3c3175"
+  },
+  "model_load_wall_seconds": 35.09,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: SFX, electronic race start timer and metallic stadium horn, three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast, crisp digital timer synth and punchy metallic air horn, mountain race start gate, clean close studio mix, tight punchy transient.",
+  "post_info": {
+    "peak_normalize_gain_db": 2.43
+  },
+  "qa_report": {
+    "passed": true,
+    "role": "countdown_sfx",
+    "repairs_applied": [
+      "retry_countdown_seed_1202_windows_[-17.0, -19.9, -21.2]"
+    ],
+    "initial_diagnostics": {
+      "duration_seconds": 2.53,
+      "overall_rms_db": -17.15,
+      "overall_peak_db": -1.02,
+      "low_lt250_pct": 2.27,
+      "mid_250to3k_pct": 78.01,
+      "sfx_zone_3to6k_pct": 7.12,
+      "seam_jump": 0.0075,
+      "intro_drop_db": 0.0,
+      "max_bar_spread_db": 0.0,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -16.15,
+          "mid_pct": 78.4,
+          "sfx_zone_pct": 6.9
+        }
+      ]
+    },
+    "final_diagnostics": {
+      "duration_seconds": 3.19,
+      "overall_rms_db": -19.12,
+      "overall_peak_db": -2.17,
+      "low_lt250_pct": 27.54,
+      "mid_250to3k_pct": 58.51,
+      "sfx_zone_3to6k_pct": 7.96,
+      "seam_jump": 0.1022,
+      "intro_drop_db": 0.0,
+      "max_bar_spread_db": 0.0,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -18.24,
+          "mid_pct": 70.3,
+          "sfx_zone_pct": 9.0
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 3.2,
+          "rms_db": -21.19,
+          "mid_pct": 19.2,
+          "sfx_zone_pct": 4.4
+        }
+      ]
+    }
+  },
+  "audio_stats": {
+    "peak": 0.891,
+    "peak_dbfs": -1.0,
+    "rms": 0.1157
+  }
+}

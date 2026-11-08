@@ -1,0 +1,42 @@
+{
+  "item": {
+    "id": "01_smoke_door_sfx",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 3.0,
+    "seed": 42,
+    "prompt": "",
+    "sfx_fields": [
+      "old wooden door",
+      "creaking open slowly, then a soft thud",
+      "dry aged oak, rusty iron hinges",
+      "echoing empty hallway, close mic"
+    ]
+  },
+  "pack_name": "01_smoke_door_sfx.zip",
+  "file_size_bytes": 793844,
+  "audio_duration_seconds": 3.0,
+  "sample_rate": 44100,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 1.72,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5297584640,
+  "peak_gpu_reserved_bytes": 9263120384,
+  "setup_timings": {
+    "git_clone_seconds": 5.82,
+    "uv_venv_install_seconds": 31.99,
+    "weight_download_seconds": 34.35
+  },
+  "files": {
+    "01_smoke_door_sfx.wav": "d85c0086dc3bea8f63579f428fe8c28b23b3f4f4a41df8a06074fe8ee765ff2d"
+  },
+  "model_load_wall_seconds": 34.97,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: SFX, old wooden door, creaking open slowly, then a soft thud, dry aged oak, rusty iron hinges, echoing empty hallway, close mic.",
+  "audio_stats": {
+    "peak": 0.45,
+    "peak_dbfs": -6.94,
+    "rms": 0.0386
+  }
+}

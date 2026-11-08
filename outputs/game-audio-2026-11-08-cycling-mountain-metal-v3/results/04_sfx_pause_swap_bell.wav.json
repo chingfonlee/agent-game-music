@@ -1,0 +1,108 @@
+{
+  "item": {
+    "id": "04_sfx_pause_swap_bell",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 2.5,
+    "seed": 4404,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "metallic mountain bike handlebar bell and precision freehub ratchet",
+      "crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click",
+      "hardened steel bike bell and anodized aluminum pawl mechanism",
+      "clean studio UI sound effect, close mic, sharp clear transient"
+    ],
+    "qa": {
+      "role": "bell_sfx"
+    },
+    "post": {
+      "out_sr": 48000,
+      "trim_silence": true,
+      "normalize": "peak",
+      "peak_ceiling_db": -1.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "04_sfx_pause_swap_bell.zip",
+  "file_size_bytes": 218444,
+  "audio_duration_seconds": 0.76,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 0.85,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5292202496,
+  "peak_gpu_reserved_bytes": 5320474624,
+  "setup_timings": {
+    "git_clone_seconds": 5.97,
+    "uv_venv_install_seconds": 30.24,
+    "weight_download_seconds": 33.98
+  },
+  "files": {
+    "04_sfx_pause_swap_bell.wav": "4aec2dcf4b3e7af4fa78a91ff2eb9c6494709b4975d08c99e4ec24a3170984ce"
+  },
+  "model_load_wall_seconds": 35.17,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: SFX, metallic mountain bike handlebar bell and precision freehub ratchet, crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click, hardened steel bike bell and anodized aluminum pawl mechanism, clean studio UI sound effect, close mic, sharp clear transient.",
+  "post_info": {
+    "peak_normalize_gain_db": 2.81
+  },
+  "qa_report": {
+    "passed": true,
+    "role": "bell_sfx",
+    "repairs_applied": [],
+    "initial_diagnostics": {
+      "duration_seconds": 0.76,
+      "overall_rms_db": -25.12,
+      "overall_peak_db": -1.0,
+      "low_lt250_pct": 0.01,
+      "mid_250to3k_pct": 13.29,
+      "sfx_zone_3to6k_pct": 11.13,
+      "seam_jump": 0.0027,
+      "onset_clarity_db": 0.73,
+      "loop_chroma_similarity": 0.8853,
+      "intro_drop_db": 0.0,
+      "max_bar_spread_db": 0.0,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 0.8,
+          "rms_db": -25.12,
+          "mid_pct": 13.3,
+          "sfx_zone_pct": 11.1
+        }
+      ]
+    },
+    "final_diagnostics": {
+      "duration_seconds": 0.76,
+      "overall_rms_db": -25.12,
+      "overall_peak_db": -1.0,
+      "low_lt250_pct": 0.01,
+      "mid_250to3k_pct": 13.29,
+      "sfx_zone_3to6k_pct": 11.13,
+      "seam_jump": 0.0027,
+      "onset_clarity_db": 0.73,
+      "loop_chroma_similarity": 0.8853,
+      "intro_drop_db": 0.0,
+      "max_bar_spread_db": 0.0,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 0.8,
+          "rms_db": -25.12,
+          "mid_pct": 13.3,
+          "sfx_zone_pct": 11.1
+        }
+      ]
+    }
+  },
+  "audio_stats": {
+    "peak": 0.891,
+    "peak_dbfs": -1.0,
+    "rms": 0.0555
+  }
+}

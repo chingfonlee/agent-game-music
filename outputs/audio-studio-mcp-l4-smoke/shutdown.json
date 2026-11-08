@@ -1,0 +1,9 @@
+{
+  "session": "audio-studio-l4",
+  "stop_command_succeeded": true,
+  "downloaded_and_verified": 4,
+  "expected_items": 4,
+  "total_spent_units": 0.0,
+  "final_balance_units": 358.97,
+  "active_sessions_output": "[colab] No active sessions found on server."
+}

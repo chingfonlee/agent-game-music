@@ -1,0 +1,42 @@
+[
+  {
+    "id": "01_smoke_door_sfx",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 3.0,
+    "seed": 42,
+    "prompt": "",
+    "sfx_fields": [
+      "old wooden door",
+      "creaking open slowly, then a soft thud",
+      "dry aged oak, rusty iron hinges",
+      "echoing empty hallway, close mic"
+    ]
+  },
+  {
+    "id": "02_smoke_synthwave_bgm",
+    "type": "generate",
+    "audio_type": "music",
+    "duration_seconds": 20.0,
+    "bpm": 100,
+    "seed": 42,
+    "prompt": "Synthwave track with warm analog pads, punchy gated drums and a shimmering arpeggiated lead, nostalgic and driving"
+  },
+  {
+    "id": "03_smoke_synthwave_loop_lufs",
+    "type": "process",
+    "source_id": "02_smoke_synthwave_bgm",
+    "target_lufs": -16.0,
+    "loop_crossfade_ms": 200.0,
+    "out_sr": 48000
+  },
+  {
+    "id": "04_smoke_synthwave_continue_30s",
+    "type": "edit_continue",
+    "source_id": "02_smoke_synthwave_bgm",
+    "audio_type": "music",
+    "duration_seconds": 30.0,
+    "seed": 1,
+    "prompt": "Synthwave outro with fading pads"
+  }
+]

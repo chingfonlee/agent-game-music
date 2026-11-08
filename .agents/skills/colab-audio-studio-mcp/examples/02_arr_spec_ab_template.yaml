@@ -1,0 +1,48 @@
+# Step 2: 編曲規格、A/B 對照與自動驗收規格表 (ARR-SPEC Template)
+# 依據 jtydhr88/music-composition-skills + sora16bit/codex-game-music-skill + SJY051/music-composition
+
+meta:
+  project: "<Project / Scene Name>"
+  target_backend: "stable-audio-3 (via colab-audio-studio-mcp)"
+  bpm: 120
+  meter: "4/4"
+  key_mode: "<Key / Mode>"
+  loop_bars: 12
+  loop_seconds_exact: 24.0
+  generate_seconds_with_crossfade: 24.2
+  crossfade_ms: 200.0
+  sample_rate: 48000
+
+shared_invariants:
+  scene: "<場景描述>"
+  cadence_function: "<BPM 與玩家節奏對應關係，從第 1 拍即滿編推進>"
+  negative_space: "控制 3-6 kHz 頻段能量 <= 8.0%，保留遊戲 SFX 穿透空間"
+  vocal_policy: "100% Instrumental (嚴禁任何 vocal/choir/voice/scream 字眼)"
+
+qa_gates:
+  loop_max_intro_drop_db: 2.5
+  loop_max_seam_jump: 0.02
+  bgm_max_sfx_zone_3to6k_pct: 8.0
+  outro_min_climax_mid_pct: 20.0
+  outro_max_climax_drop_db: 3.5
+
+variants:
+  version_A:
+    id: "02_bgm_main_loop_A"
+    concept: "<版本 A 編曲概念>"
+    roster:
+      lead: "<主奏樂器>"
+      harmony: "<和聲樂器>"
+      bass: "<貝斯樂器>"
+      drums: "<鼓組與打擊樂>"
+    compiled_sa3_prompt: "<45字以內英文自然句，含 starting immediately at full intensity from beat one>"
+
+  version_B:
+    id: "03_bgm_main_loop_B"
+    concept: "<版本 B 對照編曲概念>"
+    roster:
+      lead: "<主奏樂器>"
+      harmony: "<和聲樂器>"
+      bass: "<貝斯樂器>"
+      drums: "<鼓組與打擊樂>"
+    compiled_sa3_prompt: "<45字以內英文自然句，含 at full intensity from beat one>"

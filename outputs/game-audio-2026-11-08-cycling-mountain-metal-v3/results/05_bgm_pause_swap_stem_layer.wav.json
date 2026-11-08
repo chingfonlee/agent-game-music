@@ -1,0 +1,299 @@
+{
+  "item": {
+    "id": "05_bgm_pause_swap_stem_layer",
+    "type": "stem_layer",
+    "source_id": "02_bgm_main_loop_A",
+    "stem_weights": {
+      "drums": 1.0,
+      "bass": 1.0,
+      "other": 0.25,
+      "vocals": 0.0
+    },
+    "other_lowpass_hz": 2200.0,
+    "export_all_stems": true,
+    "qa": {
+      "role": "bgm_stem_layer",
+      "bar_seconds": 2.0
+    },
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -18.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "05_bgm_pause_swap_stem_layer.zip",
+  "file_size_bytes": 6912044,
+  "audio_duration_seconds": 24.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 4.88,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 6648064000,
+  "peak_gpu_reserved_bytes": 7075790848,
+  "setup_timings": {
+    "git_clone_seconds": 5.97,
+    "uv_venv_install_seconds": 30.24,
+    "weight_download_seconds": 33.98
+  },
+  "files": {
+    "05_bgm_pause_swap_stem_layer.wav": "6b23eae1dc68e8018adc507109d22c039b35b83259346de6a208b5954aecff22",
+    "05_bgm_pause_swap_stem_layer_stem_drums_bass.wav": "2e0d4c0644404a59651bea24399558481ae1090842990f9126e569be29175028",
+    "05_bgm_pause_swap_stem_layer_stem_guitars_synths.wav": "9134bafa09f33f8dfe0b54716b7eccc30c17c7870fbf88bd6e0b3c7999906b70"
+  },
+  "model_load_wall_seconds": 35.17,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "hdemucs_stem_layer": {
+    "hdemucs_wall_seconds": 3.13,
+    "hdemucs_model_sr": 44100,
+    "stem_weights": {
+      "drums": 1.0,
+      "bass": 1.0,
+      "other": 0.25,
+      "vocals": 0.0
+    },
+    "other_lowpass_hz": 2200.0,
+    "source_samples": 1152000,
+    "layer_samples": 1152000,
+    "waveform_correlation_with_main_loop": 0.9366,
+    "measured_onset_lag_ms": 0.0
+  },
+  "post_info": {
+    "input_lufs": -19.29,
+    "input_true_peak_db": -4.87,
+    "output_lufs": -17.96,
+    "loudnorm_mode": "linear"
+  },
+  "qa_report": {
+    "passed": true,
+    "role": "bgm_stem_layer",
+    "repairs_applied": [],
+    "initial_diagnostics": {
+      "duration_seconds": 24.0,
+      "overall_rms_db": -19.41,
+      "overall_peak_db": -3.63,
+      "low_lt250_pct": 91.08,
+      "mid_250to3k_pct": 4.04,
+      "sfx_zone_3to6k_pct": 2.84,
+      "seam_jump": 0.0076,
+      "onset_clarity_db": 9.85,
+      "loop_chroma_similarity": 0.9151,
+      "intro_drop_db": 0.32,
+      "max_bar_spread_db": 1.78,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.56,
+          "mid_pct": 3.9,
+          "sfx_zone_pct": 3.2
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -19.4,
+          "mid_pct": 3.3,
+          "sfx_zone_pct": 2.8
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -19.37,
+          "mid_pct": 3.6,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -19.36,
+          "mid_pct": 3.8,
+          "sfx_zone_pct": 3.3
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -19.45,
+          "mid_pct": 3.5,
+          "sfx_zone_pct": 3.1
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -19.59,
+          "mid_pct": 3.4,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -19.33,
+          "mid_pct": 3.4,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -20.46,
+          "mid_pct": 6.1,
+          "sfx_zone_pct": 4.0
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -18.68,
+          "mid_pct": 3.8,
+          "sfx_zone_pct": 2.7
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -19.45,
+          "mid_pct": 4.9,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -19.0,
+          "mid_pct": 4.4,
+          "sfx_zone_pct": 2.4
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -19.5,
+          "mid_pct": 5.2,
+          "sfx_zone_pct": 2.0
+        }
+      ]
+    },
+    "final_diagnostics": {
+      "duration_seconds": 24.0,
+      "overall_rms_db": -19.41,
+      "overall_peak_db": -3.63,
+      "low_lt250_pct": 91.08,
+      "mid_250to3k_pct": 4.04,
+      "sfx_zone_3to6k_pct": 2.84,
+      "seam_jump": 0.0076,
+      "onset_clarity_db": 9.85,
+      "loop_chroma_similarity": 0.9151,
+      "intro_drop_db": 0.32,
+      "max_bar_spread_db": 1.78,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.56,
+          "mid_pct": 3.9,
+          "sfx_zone_pct": 3.2
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -19.4,
+          "mid_pct": 3.3,
+          "sfx_zone_pct": 2.8
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -19.37,
+          "mid_pct": 3.6,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -19.36,
+          "mid_pct": 3.8,
+          "sfx_zone_pct": 3.3
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -19.45,
+          "mid_pct": 3.5,
+          "sfx_zone_pct": 3.1
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -19.59,
+          "mid_pct": 3.4,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -19.33,
+          "mid_pct": 3.4,
+          "sfx_zone_pct": 2.9
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -20.46,
+          "mid_pct": 6.1,
+          "sfx_zone_pct": 4.0
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -18.68,
+          "mid_pct": 3.8,
+          "sfx_zone_pct": 2.7
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -19.45,
+          "mid_pct": 4.9,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -19.0,
+          "mid_pct": 4.4,
+          "sfx_zone_pct": 2.4
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -19.5,
+          "mid_pct": 5.2,
+          "sfx_zone_pct": 2.0
+        }
+      ]
+    }
+  },
+  "audio_stats": {
+    "peak": 0.661,
+    "peak_dbfs": -3.6,
+    "rms": 0.1083
+  }
+}

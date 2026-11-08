@@ -1,0 +1,54 @@
+{
+  "item": {
+    "id": "01_sfx_countdown_3s",
+    "type": "generate",
+    "audio_type": "sfx",
+    "duration_seconds": 3.5,
+    "seed": 101,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "",
+    "sfx_fields": [
+      "electronic sports race countdown timer",
+      "three crisp rhythmic low-mid beeps once per second followed by a bright high-pitched go whistle tone",
+      "clean digital synthesizer tone and crisp stadium timer chime",
+      "open outdoor countryside start line, clean close mix, minimal reverb"
+    ],
+    "post": {
+      "out_sr": 48000,
+      "trim_silence": true,
+      "normalize": "peak",
+      "peak_ceiling_db": -1.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "01_sfx_countdown_3s.zip",
+  "file_size_bytes": 1008044,
+  "audio_duration_seconds": 3.5,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 2.04,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5304538112,
+  "peak_gpu_reserved_bytes": 9263120384,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "01_sfx_countdown_3s.wav": "e78fdf218ff4352b1e690f27f34905540879983a43e9f1a3887a6b5a61efa2a0"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: SFX, electronic sports race countdown timer, three crisp rhythmic low-mid beeps once per second followed by a bright high-pitched go whistle tone, clean digital synthesizer tone and crisp stadium timer chime, open outdoor countryside start line, clean close mix, minimal reverb.",
+  "post_info": {
+    "peak_normalize_gain_db": 7.11
+  },
+  "audio_stats": {
+    "peak": 0.891,
+    "peak_dbfs": -1.0,
+    "rms": 0.1307
+  }
+}

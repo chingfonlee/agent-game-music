@@ -1,0 +1,87 @@
+# Step 2: 編曲規格與 A/B 測試設計表 (ARR-SPEC)
+# 依據 jtydhr88/music-composition-skills (ARR-SPEC & backends.yaml: stable-audio-3)
+
+meta:
+  project: "Countryside Cycling Trainer Time Trial"
+  target_backend: "stable-audio-3 (via colab-audio-studio-mcp)"
+  bpm: 120                 # honors: hint (搭配精確秒數換算鎖定小節)
+  meter: "4/4"
+  loop_bars: 12
+  loop_seconds_exact: 24.0
+  generate_seconds_with_crossfade: 24.2
+  crossfade_ms: 200.0
+  loudness_target_lufs: -16.0
+  sample_rate: 48000
+
+shared_invariants:
+  scene: "陽光鄉村田野單車訓練台計時賽"
+  cadence_function: "120 BPM 穩定四四拍推進，輔助踩踏節奏"
+  negative_space: "高頻乾淨無刺耳銅鈸，保留計時器、倒數與換人鈴聲空間"
+  vocal_policy: "100% Instrumental (嚴禁出現 vocal/choir/voice 字眼)"
+
+variants:
+  version_A_organic_folk_pop:
+    id: "02_bgm_countryside_loop_A"
+    concept: "自然原聲鄉村微風感 — 以木吉他刷弦與明亮木管/合成器旋律為主導"
+    roster:
+      lead: "bright melodic flute-like synth and acoustic guitar hook"
+      harmony: "strumming acoustic guitar and warm electric piano chords"
+      bass: "bouncy melodic electric bassline"
+      drums: "crisp upbeat four-on-the-floor acoustic drum kit and rhythmic shaker"
+    compiled_sa3_prompt: >-
+      Upbeat countryside acoustic indie pop game music with crisp strumming acoustic
+      guitar, bright flute-like synth melody, bouncy electric bass and steady driving
+      drum beat with shaker, sunny, breezy and motivating
+
+  version_B_bright_arcade_synth:
+    id: "03_bgm_countryside_loop_B"
+    concept: "現代運動電玩感 — 以明亮合成器琶音與放克電鋼琴為主導（同 BPM 對照組）"
+    roster:
+      lead: "sparkling plucky synth lead melody"
+      harmony: "bright funky Rhodes electric piano chords and warm analog synth pad"
+      bass: "punchy rhythmic synth bass"
+      drums: "tight upbeat electronic four-on-the-floor drums and crisp percussion"
+    compiled_sa3_prompt: >-
+      Bright upbeat arcade sports synth-pop game music with sparkling plucky synth
+      melody, funky electric piano chords, punchy synth bass and tight four-on-the-floor
+      drums, sunny, energetic and rhythmic
+
+state_transitions:
+  countdown_3s_sfx:
+    id: "01_sfx_countdown_3s"
+    duration_seconds: 3.0
+    sfx_fields:
+      sound_source: "electronic sports race countdown timer"
+      sound_action: "three crisp rhythmic low-mid beeps once per second followed by a bright high-pitched go whistle tone"
+      sound_material: "clean digital synthesizer tone and crisp stadium timer chime"
+      sound_space: "open outdoor countryside start line, clean close mix, minimal reverb"
+
+  pause_rider_swap_sfx:
+    id: "04_sfx_pause_swap_bell"
+    duration_seconds: 2.5
+    sfx_fields:
+      sound_source: "classic brass bicycle handlebar bell and trainer gear latch"
+      sound_action: "crisp double ring ding-ding followed by a clean mechanical coasting click"
+      sound_material: "bright polished brass bell and precision aluminum ratchet"
+      sound_space: "clean studio UI sound effect, close mic, crisp transient"
+
+  pause_rider_swap_bgm_layer:
+    id: "05_bgm_pause_swap_layer"
+    type: "edit_variation"
+    source_id: "02_bgm_countryside_loop_A"
+    strength: 0.55
+    concept: "暫停換人狀態 — 保留 Version A 的 120 BPM 律動與長度，但降為柔和木吉他與電鋼琴伴奏層"
+    compiled_sa3_prompt: >-
+      Relaxed countryside acoustic groove with gentle muted acoustic guitar chords,
+      warm electric piano, soft bass pulse and light shaker rhythm, calm, breezy
+      interlude for player swap
+
+  finish_line_outro:
+    id: "06_bgm_finish_outro"
+    type: "edit_continue"
+    source_id: "02_bgm_countryside_loop_A"
+    duration_seconds: 32.0
+    concept: "計時結束衝線 — 在 24 秒主循環後無縫接上 8 秒勝利終止式與尾音"
+    compiled_sa3_prompt: >-
+      Uplifting acoustic indie pop victory finale cadence with bright resolving guitar
+      chords, celebratory brass swell, crisp final cymbal hit and clean fading reverb tail

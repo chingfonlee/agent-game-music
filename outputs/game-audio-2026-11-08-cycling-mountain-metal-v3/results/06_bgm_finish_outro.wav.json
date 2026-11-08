@@ -1,0 +1,360 @@
+{
+  "item": {
+    "id": "06_bgm_finish_outro",
+    "type": "edit_continue",
+    "source_id": "02_bgm_main_loop_A",
+    "audio_type": "music",
+    "duration_seconds": 32.0,
+    "bpm": 120,
+    "seed": 6606,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Triumphant heavy metal victory finale with massive sustained power chords, soaring twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail",
+    "qa": {
+      "role": "bgm_outro",
+      "bar_seconds": 2.0,
+      "climax_start_sec": 24.0,
+      "climax_end_sec": 28.0,
+      "max_climax_drop_db": 3.5,
+      "min_climax_mid_pct": 20.0,
+      "max_sfx_zone_pct": 8.0
+    },
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -16.0,
+      "fade_out_ms": 600.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "06_bgm_finish_outro.zip",
+  "file_size_bytes": 9216044,
+  "audio_duration_seconds": 32.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 13.62,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5344498176,
+  "peak_gpu_reserved_bytes": 5381292032,
+  "setup_timings": {
+    "git_clone_seconds": 5.97,
+    "uv_venv_install_seconds": 30.24,
+    "weight_download_seconds": 33.98
+  },
+  "files": {
+    "06_bgm_finish_outro.wav": "ed9d8c832d02bb8115eaefbfcfa76f2b533c35f2f35e5c3e4db7a8e7bd5e2c05"
+  },
+  "model_load_wall_seconds": 35.17,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Triumphant heavy metal victory finale with massive sustained power chords, soaring twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail. BPM: 120.",
+  "inpaint_range": [
+    23.37,
+    32.0
+  ],
+  "post_info": {
+    "input_lufs": -10.48,
+    "input_true_peak_db": 0.92,
+    "output_lufs": -15.99,
+    "loudnorm_mode": "linear"
+  },
+  "qa_report": {
+    "passed": true,
+    "role": "bgm_outro",
+    "repairs_applied": [
+      "retry_outro_seed_6717(climax_rms:-19.1dB,mid:13.1%)",
+      "retry_outro_seed_6828(climax_rms:-19.1dB,mid:12.1%)",
+      "climax_4bar_summit_cadence_extension_with_1800ms_fade"
+    ],
+    "initial_diagnostics": {
+      "duration_seconds": 32.0,
+      "overall_rms_db": -19.58,
+      "overall_peak_db": -5.01,
+      "low_lt250_pct": 76.56,
+      "mid_250to3k_pct": 13.52,
+      "sfx_zone_3to6k_pct": 8.23,
+      "seam_jump": 0.0846,
+      "onset_clarity_db": 6.39,
+      "loop_chroma_similarity": 0.9473,
+      "intro_drop_db": 0.17,
+      "max_bar_spread_db": 1.43,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.49,
+          "mid_pct": 12.8,
+          "sfx_zone_pct": 6.5
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -19.82,
+          "mid_pct": 12.7,
+          "sfx_zone_pct": 7.1
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -19.58,
+          "mid_pct": 12.6,
+          "sfx_zone_pct": 6.4
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -19.62,
+          "mid_pct": 12.2,
+          "sfx_zone_pct": 6.8
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -19.61,
+          "mid_pct": 12.4,
+          "sfx_zone_pct": 6.9
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -19.8,
+          "mid_pct": 12.3,
+          "sfx_zone_pct": 6.4
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -19.5,
+          "mid_pct": 12.3,
+          "sfx_zone_pct": 6.4
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -20.43,
+          "mid_pct": 16.2,
+          "sfx_zone_pct": 9.2
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -19.1,
+          "mid_pct": 12.3,
+          "sfx_zone_pct": 8.6
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -19.57,
+          "mid_pct": 14.2,
+          "sfx_zone_pct": 11.0
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -19.49,
+          "mid_pct": 14.5,
+          "sfx_zone_pct": 9.2
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -19.47,
+          "mid_pct": 14.9,
+          "sfx_zone_pct": 10.8
+        },
+        {
+          "bar": 13,
+          "start_s": 24.0,
+          "end_s": 26.0,
+          "rms_db": -19.25,
+          "mid_pct": 12.6,
+          "sfx_zone_pct": 8.0
+        },
+        {
+          "bar": 14,
+          "start_s": 26.0,
+          "end_s": 28.0,
+          "rms_db": -19.0,
+          "mid_pct": 12.7,
+          "sfx_zone_pct": 9.8
+        },
+        {
+          "bar": 15,
+          "start_s": 28.0,
+          "end_s": 30.0,
+          "rms_db": -19.44,
+          "mid_pct": 13.7,
+          "sfx_zone_pct": 8.5
+        },
+        {
+          "bar": 16,
+          "start_s": 30.0,
+          "end_s": 32.0,
+          "rms_db": -20.27,
+          "mid_pct": 20.7,
+          "sfx_zone_pct": 10.2
+        }
+      ]
+    },
+    "final_diagnostics": {
+      "duration_seconds": 32.0,
+      "overall_rms_db": -19.66,
+      "overall_peak_db": -5.09,
+      "low_lt250_pct": 76.82,
+      "mid_250to3k_pct": 13.26,
+      "sfx_zone_3to6k_pct": 8.2,
+      "seam_jump": 0.1051,
+      "onset_clarity_db": 6.56,
+      "loop_chroma_similarity": 0.9626,
+      "intro_drop_db": -0.41,
+      "max_bar_spread_db": 3.07,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.44,
+          "mid_pct": 12.8,
+          "sfx_zone_pct": 6.5
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -19.82,
+          "mid_pct": 12.8,
+          "sfx_zone_pct": 7.2
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -19.56,
+          "mid_pct": 12.7,
+          "sfx_zone_pct": 6.4
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -19.58,
+          "mid_pct": 12.3,
+          "sfx_zone_pct": 6.8
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -19.59,
+          "mid_pct": 12.5,
+          "sfx_zone_pct": 6.9
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -19.77,
+          "mid_pct": 12.3,
+          "sfx_zone_pct": 6.4
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -19.47,
+          "mid_pct": 12.4,
+          "sfx_zone_pct": 6.5
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -20.38,
+          "mid_pct": 16.1,
+          "sfx_zone_pct": 9.2
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -19.06,
+          "mid_pct": 12.2,
+          "sfx_zone_pct": 8.5
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -19.56,
+          "mid_pct": 14.2,
+          "sfx_zone_pct": 11.0
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -19.43,
+          "mid_pct": 14.5,
+          "sfx_zone_pct": 9.2
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -19.53,
+          "mid_pct": 16.3,
+          "sfx_zone_pct": 10.4
+        },
+        {
+          "bar": 13,
+          "start_s": 24.0,
+          "end_s": 26.0,
+          "rms_db": -19.06,
+          "mid_pct": 12.2,
+          "sfx_zone_pct": 8.5
+        },
+        {
+          "bar": 14,
+          "start_s": 26.0,
+          "end_s": 28.0,
+          "rms_db": -19.56,
+          "mid_pct": 14.2,
+          "sfx_zone_pct": 11.0
+        },
+        {
+          "bar": 15,
+          "start_s": 28.0,
+          "end_s": 30.0,
+          "rms_db": -19.43,
+          "mid_pct": 14.5,
+          "sfx_zone_pct": 9.2
+        },
+        {
+          "bar": 16,
+          "start_s": 30.0,
+          "end_s": 32.0,
+          "rms_db": -22.13,
+          "mid_pct": 10.2,
+          "sfx_zone_pct": 6.9
+        }
+      ]
+    }
+  },
+  "audio_stats": {
+    "peak": 0.564,
+    "peak_dbfs": -4.98,
+    "rms": 0.1139
+  }
+}

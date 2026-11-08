@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Colab Job Execution & Logs
+*.log
+*.pid
+usage-*.txt
+live-job.log
+foreground-client.log
+colab-job.log
+remote-status.json
+
+# Archive Packs & Cache
+packs/
+*.zip
+*.tar.gz
+*.token
+.hf_token
+
+# OS / Editor Metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

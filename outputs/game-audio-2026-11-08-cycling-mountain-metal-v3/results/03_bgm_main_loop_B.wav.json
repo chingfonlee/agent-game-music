@@ -1,0 +1,320 @@
+{
+  "item": {
+    "id": "03_bgm_main_loop_B",
+    "type": "generate",
+    "audio_type": "music",
+    "candidates": 3,
+    "duration_seconds": 24.6,
+    "bpm": 120,
+    "seed": 3303,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Driving industrial groove metal action game music at full intensity from beat one with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping heavy metal drums, relentless, muscular and rhythmic",
+    "qa": {
+      "role": "bgm_loop",
+      "bar_seconds": 2.0,
+      "max_intro_drop_db": 2.5,
+      "max_sfx_zone_pct": 8.0,
+      "max_seam_jump": 0.02,
+      "export_intro_segment": true,
+      "inpaint_fix_prompt": "Full intensity industrial groove metal with stomping four-on-the-floor drums, gritty synth bass and heavy drop-tuned rhythm guitar riff from beat one"
+    },
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -16.0,
+      "target_loop_seconds": 24.0,
+      "loop_crossfade_ms": 200.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "03_bgm_main_loop_B.zip",
+  "file_size_bytes": 6912044,
+  "audio_duration_seconds": 24.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 10.05,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5340841472,
+  "peak_gpu_reserved_bytes": 5383389184,
+  "setup_timings": {
+    "git_clone_seconds": 5.97,
+    "uv_venv_install_seconds": 30.24,
+    "weight_download_seconds": 33.98
+  },
+  "files": {
+    "03_bgm_main_loop_B.wav": "de2e4e11a9b188c31238e43375f9d82013b7c7d48cd12a9f72a4948762c67a23"
+  },
+  "model_load_wall_seconds": 35.17,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "best_of_n": {
+    "candidates_evaluated": 3,
+    "winner_seed": 3303,
+    "winner_score": 102.95,
+    "candidate_metrics": {
+      "3303": {
+        "score": 102.95,
+        "intro_drop_db": 1.69,
+        "max_bar_spread_db": 2.37,
+        "loop_chroma_similarity": 0.9317,
+        "onset_clarity_db": 2.97
+      },
+      "3404": {
+        "score": 87.1,
+        "intro_drop_db": 3.2,
+        "max_bar_spread_db": 6.1,
+        "loop_chroma_similarity": 0.8924,
+        "onset_clarity_db": 2.96
+      },
+      "3505": {
+        "score": 92.53,
+        "intro_drop_db": 3.04,
+        "max_bar_spread_db": 4.09,
+        "loop_chroma_similarity": 0.8141,
+        "onset_clarity_db": 3.43
+      }
+    }
+  },
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Driving industrial groove metal action game music at full intensity from beat one with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping heavy metal drums, relentless, muscular and rhythmic. BPM: 120.",
+  "post_info": {
+    "input_lufs": -10.03,
+    "input_true_peak_db": 1.08,
+    "output_lufs": -15.93,
+    "loudnorm_mode": "linear",
+    "aligned_start_ms": 0.1,
+    "loop_chroma_similarity": 0.5161,
+    "zero_crossing_snapped": true
+  },
+  "qa_report": {
+    "passed": true,
+    "role": "bgm_loop",
+    "repairs_applied": [],
+    "initial_diagnostics": {
+      "duration_seconds": 24.0,
+      "overall_rms_db": -18.02,
+      "overall_peak_db": -5.93,
+      "low_lt250_pct": 84.32,
+      "mid_250to3k_pct": 11.07,
+      "sfx_zone_3to6k_pct": 2.16,
+      "seam_jump": 0.0016,
+      "onset_clarity_db": 2.97,
+      "loop_chroma_similarity": 0.9317,
+      "intro_drop_db": 1.69,
+      "max_bar_spread_db": 2.37,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.73,
+          "mid_pct": 9.6,
+          "sfx_zone_pct": 3.1
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -18.82,
+          "mid_pct": 7.7,
+          "sfx_zone_pct": 1.9
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -18.93,
+          "mid_pct": 8.0,
+          "sfx_zone_pct": 1.6
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -18.96,
+          "mid_pct": 8.4,
+          "sfx_zone_pct": 3.0
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -17.42,
+          "mid_pct": 16.4,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -17.88,
+          "mid_pct": 8.6,
+          "sfx_zone_pct": 1.7
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -17.51,
+          "mid_pct": 15.6,
+          "sfx_zone_pct": 2.2
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -17.42,
+          "mid_pct": 7.6,
+          "sfx_zone_pct": 2.0
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -17.48,
+          "mid_pct": 15.9,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -17.84,
+          "mid_pct": 8.5,
+          "sfx_zone_pct": 1.7
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -17.36,
+          "mid_pct": 15.3,
+          "sfx_zone_pct": 2.2
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -17.65,
+          "mid_pct": 7.2,
+          "sfx_zone_pct": 2.3
+        }
+      ]
+    },
+    "final_diagnostics": {
+      "duration_seconds": 24.0,
+      "overall_rms_db": -18.02,
+      "overall_peak_db": -5.93,
+      "low_lt250_pct": 84.32,
+      "mid_250to3k_pct": 11.07,
+      "sfx_zone_3to6k_pct": 2.16,
+      "seam_jump": 0.0016,
+      "onset_clarity_db": 2.97,
+      "loop_chroma_similarity": 0.9317,
+      "intro_drop_db": 1.69,
+      "max_bar_spread_db": 2.37,
+      "bars": [
+        {
+          "bar": 1,
+          "start_s": 0.0,
+          "end_s": 2.0,
+          "rms_db": -19.73,
+          "mid_pct": 9.6,
+          "sfx_zone_pct": 3.1
+        },
+        {
+          "bar": 2,
+          "start_s": 2.0,
+          "end_s": 4.0,
+          "rms_db": -18.82,
+          "mid_pct": 7.7,
+          "sfx_zone_pct": 1.9
+        },
+        {
+          "bar": 3,
+          "start_s": 4.0,
+          "end_s": 6.0,
+          "rms_db": -18.93,
+          "mid_pct": 8.0,
+          "sfx_zone_pct": 1.6
+        },
+        {
+          "bar": 4,
+          "start_s": 6.0,
+          "end_s": 8.0,
+          "rms_db": -18.96,
+          "mid_pct": 8.4,
+          "sfx_zone_pct": 3.0
+        },
+        {
+          "bar": 5,
+          "start_s": 8.0,
+          "end_s": 10.0,
+          "rms_db": -17.42,
+          "mid_pct": 16.4,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 6,
+          "start_s": 10.0,
+          "end_s": 12.0,
+          "rms_db": -17.88,
+          "mid_pct": 8.6,
+          "sfx_zone_pct": 1.7
+        },
+        {
+          "bar": 7,
+          "start_s": 12.0,
+          "end_s": 14.0,
+          "rms_db": -17.51,
+          "mid_pct": 15.6,
+          "sfx_zone_pct": 2.2
+        },
+        {
+          "bar": 8,
+          "start_s": 14.0,
+          "end_s": 16.0,
+          "rms_db": -17.42,
+          "mid_pct": 7.6,
+          "sfx_zone_pct": 2.0
+        },
+        {
+          "bar": 9,
+          "start_s": 16.0,
+          "end_s": 18.0,
+          "rms_db": -17.48,
+          "mid_pct": 15.9,
+          "sfx_zone_pct": 2.3
+        },
+        {
+          "bar": 10,
+          "start_s": 18.0,
+          "end_s": 20.0,
+          "rms_db": -17.84,
+          "mid_pct": 8.5,
+          "sfx_zone_pct": 1.7
+        },
+        {
+          "bar": 11,
+          "start_s": 20.0,
+          "end_s": 22.0,
+          "rms_db": -17.36,
+          "mid_pct": 15.3,
+          "sfx_zone_pct": 2.2
+        },
+        {
+          "bar": 12,
+          "start_s": 22.0,
+          "end_s": 24.0,
+          "rms_db": -17.65,
+          "mid_pct": 7.2,
+          "sfx_zone_pct": 2.3
+        }
+      ]
+    }
+  },
+  "audio_stats": {
+    "peak": 0.57,
+    "peak_dbfs": -4.89,
+    "rms": 0.1315
+  }
+}

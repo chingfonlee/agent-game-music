@@ -1,0 +1,322 @@
+{
+  "01_sfx_countdown_3s.zip": {
+    "item": {
+      "id": "01_sfx_countdown_3s",
+      "type": "generate",
+      "audio_type": "sfx",
+      "duration_seconds": 3.5,
+      "seed": 101,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "",
+      "sfx_fields": [
+        "electronic sports race countdown timer",
+        "three crisp rhythmic low-mid beeps once per second followed by a bright high-pitched go whistle tone",
+        "clean digital synthesizer tone and crisp stadium timer chime",
+        "open outdoor countryside start line, clean close mix, minimal reverb"
+      ],
+      "post": {
+        "out_sr": 48000,
+        "trim_silence": true,
+        "normalize": "peak",
+        "peak_ceiling_db": -1.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "01_sfx_countdown_3s.zip",
+    "file_size_bytes": 1008044,
+    "audio_duration_seconds": 3.5,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 2.04,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5304538112,
+    "peak_gpu_reserved_bytes": 9263120384,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "01_sfx_countdown_3s.wav": "e78fdf218ff4352b1e690f27f34905540879983a43e9f1a3887a6b5a61efa2a0"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: SFX, electronic sports race countdown timer, three crisp rhythmic low-mid beeps once per second followed by a bright high-pitched go whistle tone, clean digital synthesizer tone and crisp stadium timer chime, open outdoor countryside start line, clean close mix, minimal reverb.",
+    "post_info": {
+      "peak_normalize_gain_db": 7.11
+    },
+    "audio_stats": {
+      "peak": 0.891,
+      "peak_dbfs": -1.0,
+      "rms": 0.1307
+    }
+  },
+  "02_bgm_countryside_loop_A.zip": {
+    "item": {
+      "id": "02_bgm_countryside_loop_A",
+      "type": "generate",
+      "audio_type": "music",
+      "duration_seconds": 24.2,
+      "bpm": 120,
+      "seed": 2026,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Upbeat countryside acoustic indie pop game music with crisp strumming acoustic guitar, bright flute-like synth melody, bouncy electric bass and steady driving drum beat with shaker, sunny, breezy and motivating",
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "02_bgm_countryside_loop_A.zip",
+    "file_size_bytes": 6912044,
+    "audio_duration_seconds": 24.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 2.9,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5340829184,
+    "peak_gpu_reserved_bytes": 5381292032,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "02_bgm_countryside_loop_A.wav": "c0c974fb38f4d40111af8f2001f1a0ed5a4e3392e7e168cc077fc78239251b09"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Upbeat countryside acoustic indie pop game music with crisp strumming acoustic guitar, bright flute-like synth melody, bouncy electric bass and steady driving drum beat with shaker, sunny, breezy and motivating. BPM: 120.",
+    "post_info": {
+      "input_lufs": -16.38,
+      "input_true_peak_db": -1.41,
+      "output_lufs": -16.09,
+      "loudnorm_mode": "linear"
+    },
+    "audio_stats": {
+      "peak": 0.888,
+      "peak_dbfs": -1.04,
+      "rms": 0.1127
+    }
+  },
+  "03_bgm_countryside_loop_B.zip": {
+    "item": {
+      "id": "03_bgm_countryside_loop_B",
+      "type": "generate",
+      "audio_type": "music",
+      "duration_seconds": 24.2,
+      "bpm": 120,
+      "seed": 3088,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Bright upbeat arcade sports synth-pop game music with sparkling plucky synth melody, funky electric piano chords, punchy synth bass and tight four-on-the-floor drums, sunny, energetic and rhythmic",
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "03_bgm_countryside_loop_B.zip",
+    "file_size_bytes": 6912044,
+    "audio_duration_seconds": 24.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 2.78,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5340829184,
+    "peak_gpu_reserved_bytes": 5381292032,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "03_bgm_countryside_loop_B.wav": "249af9aacf7b44bed72c44bd43b2501b618849ceb09347b084b2b3102c4fdf6d"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Bright upbeat arcade sports synth-pop game music with sparkling plucky synth melody, funky electric piano chords, punchy synth bass and tight four-on-the-floor drums, sunny, energetic and rhythmic. BPM: 120.",
+    "post_info": {
+      "input_lufs": -14.28,
+      "input_true_peak_db": 0.18,
+      "output_lufs": -15.93,
+      "loudnorm_mode": "linear"
+    },
+    "audio_stats": {
+      "peak": 0.834,
+      "peak_dbfs": -1.58,
+      "rms": 0.1301
+    }
+  },
+  "04_sfx_pause_swap_bell.zip": {
+    "item": {
+      "id": "04_sfx_pause_swap_bell",
+      "type": "generate",
+      "audio_type": "sfx",
+      "duration_seconds": 2.5,
+      "seed": 404,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "",
+      "sfx_fields": [
+        "classic brass bicycle handlebar bell and trainer gear latch",
+        "crisp double ring ding-ding followed by a clean mechanical coasting click",
+        "bright polished brass bell and precision aluminum ratchet",
+        "clean studio UI sound effect, close mic, crisp transient"
+      ],
+      "post": {
+        "out_sr": 48000,
+        "trim_silence": true,
+        "normalize": "peak",
+        "peak_ceiling_db": -1.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "04_sfx_pause_swap_bell.zip",
+    "file_size_bytes": 708560,
+    "audio_duration_seconds": 2.46,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 0.91,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5292202496,
+    "peak_gpu_reserved_bytes": 5320474624,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "04_sfx_pause_swap_bell.wav": "62d4c54e4c2effc7e74fa9aa6988131e402c2dbeedab7dc1086a2f12b7536f3e"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: SFX, classic brass bicycle handlebar bell and trainer gear latch, crisp double ring ding-ding followed by a clean mechanical coasting click, bright polished brass bell and precision aluminum ratchet, clean studio UI sound effect, close mic, crisp transient.",
+    "post_info": {
+      "peak_normalize_gain_db": 4.37
+    },
+    "audio_stats": {
+      "peak": 0.891,
+      "peak_dbfs": -1.0,
+      "rms": 0.0304
+    }
+  },
+  "05_bgm_pause_swap_layer.zip": {
+    "item": {
+      "id": "05_bgm_pause_swap_layer",
+      "type": "edit_variation",
+      "source_id": "02_bgm_countryside_loop_A",
+      "audio_type": "music",
+      "duration_seconds": 24.0,
+      "bpm": 120,
+      "strength": 0.55,
+      "seed": 505,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Relaxed countryside acoustic groove with gentle muted acoustic guitar chords, warm electric piano, soft bass pulse and light shaker rhythm, calm, breezy interlude for player swap",
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -18.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "05_bgm_pause_swap_layer.zip",
+    "file_size_bytes": 6854444,
+    "audio_duration_seconds": 23.8,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 4.35,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5342727680,
+    "peak_gpu_reserved_bytes": 5362417664,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "05_bgm_pause_swap_layer.wav": "4306f086b7301f7f42ad229c63227610718a6c683fcf176df598dee90fb76e18"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Relaxed countryside acoustic groove with gentle muted acoustic guitar chords, warm electric piano, soft bass pulse and light shaker rhythm, calm, breezy interlude for player swap. BPM: 120.",
+    "init_strength": 0.55,
+    "post_info": {
+      "input_lufs": -18.74,
+      "input_true_peak_db": -1.56,
+      "output_lufs": -18.0,
+      "loudnorm_mode": "dynamic"
+    },
+    "audio_stats": {
+      "peak": 0.854,
+      "peak_dbfs": -1.37,
+      "rms": 0.0994
+    }
+  },
+  "06_bgm_finish_outro.zip": {
+    "item": {
+      "id": "06_bgm_finish_outro",
+      "type": "edit_continue",
+      "source_id": "02_bgm_countryside_loop_A",
+      "audio_type": "music",
+      "duration_seconds": 32.0,
+      "bpm": 120,
+      "seed": 606,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Uplifting acoustic indie pop victory finale cadence with bright resolving guitar chords, celebratory brass swell, crisp final cymbal hit and clean fading reverb tail",
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "fade_out_ms": 600.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "06_bgm_finish_outro.zip",
+    "file_size_bytes": 9216044,
+    "audio_duration_seconds": 32.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 5.08,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5344498176,
+    "peak_gpu_reserved_bytes": 5381292032,
+    "setup_timings": {
+      "git_clone_seconds": 5.62,
+      "uv_venv_install_seconds": 30.1,
+      "weight_download_seconds": 35.33
+    },
+    "files": {
+      "06_bgm_finish_outro.wav": "cbccfa5ff53cce7039a59d232597d0c9c051d449411663031f6e0299013f660f"
+    },
+    "model_load_wall_seconds": 36.04,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Uplifting acoustic indie pop victory finale cadence with bright resolving guitar chords, celebratory brass swell, crisp final cymbal hit and clean fading reverb tail. BPM: 120.",
+    "inpaint_range": [
+      23.0,
+      32.0
+    ],
+    "post_info": {
+      "input_lufs": -16.13,
+      "input_true_peak_db": 0.08,
+      "output_lufs": -15.97,
+      "loudnorm_mode": "dynamic"
+    },
+    "audio_stats": {
+      "peak": 0.891,
+      "peak_dbfs": -1.0,
+      "rms": 0.1065
+    }
+  }
+}

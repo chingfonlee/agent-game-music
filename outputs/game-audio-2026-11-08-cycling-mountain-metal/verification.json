@@ -1,0 +1,1428 @@
+{
+  "01_sfx_countdown_3s.zip": {
+    "item": {
+      "id": "01_sfx_countdown_3s",
+      "type": "generate",
+      "audio_type": "sfx",
+      "duration_seconds": 3.5,
+      "seed": 1101,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "",
+      "sfx_fields": [
+        "electronic race start timer and metallic stadium horn",
+        "three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast",
+        "crisp digital timer synth and punchy metallic air horn",
+        "mountain race start gate, clean close studio mix, tight punchy transient"
+      ],
+      "qa": {
+        "role": "countdown_sfx",
+        "min_active_windows": 3
+      },
+      "post": {
+        "out_sr": 48000,
+        "trim_silence": true,
+        "normalize": "peak",
+        "peak_ceiling_db": -1.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "01_sfx_countdown_3s.zip",
+    "file_size_bytes": 918128,
+    "audio_duration_seconds": 3.19,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 2.91,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5306110976,
+    "peak_gpu_reserved_bytes": 9263120384,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "01_sfx_countdown_3s.wav": "ec2a949393f2b34bcfee2fdfcab919b6001a58c2e3e3bdba203489a3fb3c3175"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: SFX, electronic race start timer and metallic stadium horn, three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast, crisp digital timer synth and punchy metallic air horn, mountain race start gate, clean close studio mix, tight punchy transient.",
+    "post_info": {
+      "peak_normalize_gain_db": 2.43
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "countdown_sfx",
+      "repairs_applied": [
+        "retry_countdown_seed_1202_windows_[-17.0, -19.9, -21.2]"
+      ],
+      "initial_diagnostics": {
+        "duration_seconds": 2.53,
+        "overall_rms_db": -17.15,
+        "overall_peak_db": -1.02,
+        "low_lt250_pct": 2.27,
+        "mid_250to3k_pct": 78.01,
+        "sfx_zone_3to6k_pct": 7.12,
+        "seam_jump": 0.0075,
+        "intro_drop_db": 0.0,
+        "max_bar_spread_db": 0.0,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -16.15,
+            "mid_pct": 78.4,
+            "sfx_zone_pct": 6.9
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 3.19,
+        "overall_rms_db": -19.12,
+        "overall_peak_db": -2.17,
+        "low_lt250_pct": 27.54,
+        "mid_250to3k_pct": 58.51,
+        "sfx_zone_3to6k_pct": 7.96,
+        "seam_jump": 0.1022,
+        "intro_drop_db": 0.0,
+        "max_bar_spread_db": 0.0,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -18.24,
+            "mid_pct": 70.3,
+            "sfx_zone_pct": 9.0
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 3.2,
+            "rms_db": -21.19,
+            "mid_pct": 19.2,
+            "sfx_zone_pct": 4.4
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.891,
+      "peak_dbfs": -1.0,
+      "rms": 0.1157
+    }
+  },
+  "02_bgm_metal_loop_A.zip": {
+    "item": {
+      "id": "02_bgm_metal_loop_A",
+      "type": "generate",
+      "audio_type": "music",
+      "duration_seconds": 24.2,
+      "bpm": 120,
+      "seed": 2202,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "High-energy melodic heavy metal game music starting immediately at full intensity with tight palm-muted galloping rhythm guitars, soaring melodic lead guitar riff, driving heavy bass and punchy double-kick drums, powerful and motivating",
+      "qa": {
+        "role": "bgm_loop",
+        "bar_seconds": 2.0,
+        "max_intro_drop_db": 2.5,
+        "max_sfx_zone_pct": 8.0,
+        "max_seam_jump": 0.02,
+        "inpaint_fix_prompt": "Full intensity heavy metal groove with punchy double-kick drums, driving heavy bass and tight palm-muted chugging rhythm guitars from beat one"
+      },
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "02_bgm_metal_loop_A.zip",
+    "file_size_bytes": 6912044,
+    "audio_duration_seconds": 24.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 2.89,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5340829184,
+    "peak_gpu_reserved_bytes": 5381292032,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "02_bgm_metal_loop_A.wav": "efe081c980702ce17ac6bb67179ef2a65a2c983c473a1a6ffb197b727b9fc79e"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, High-energy melodic heavy metal game music starting immediately at full intensity with tight palm-muted galloping rhythm guitars, soaring melodic lead guitar riff, driving heavy bass and punchy double-kick drums, powerful and motivating. BPM: 120.",
+    "post_info": {
+      "input_lufs": -11.39,
+      "input_true_peak_db": 0.34,
+      "output_lufs": -15.88,
+      "loudnorm_mode": "linear"
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "bgm_loop",
+      "repairs_applied": [],
+      "initial_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -18.82,
+        "overall_peak_db": -4.48,
+        "low_lt250_pct": 84.28,
+        "mid_250to3k_pct": 8.52,
+        "sfx_zone_3to6k_pct": 5.65,
+        "seam_jump": 0.0001,
+        "intro_drop_db": -0.62,
+        "max_bar_spread_db": 1.21,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -18.75,
+            "mid_pct": 7.4,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -18.39,
+            "mid_pct": 7.3,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -18.64,
+            "mid_pct": 8.1,
+            "sfx_zone_pct": 5.1
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -18.78,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 5.8
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -18.43,
+            "mid_pct": 7.5,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -18.73,
+            "mid_pct": 7.9,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -18.55,
+            "mid_pct": 8.4,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -18.96,
+            "mid_pct": 9.0,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -19.5,
+            "mid_pct": 9.8,
+            "sfx_zone_pct": 6.9
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -18.69,
+            "mid_pct": 9.1,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -18.98,
+            "mid_pct": 8.8,
+            "sfx_zone_pct": 6.4
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -19.6,
+            "mid_pct": 11.4,
+            "sfx_zone_pct": 7.6
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -18.82,
+        "overall_peak_db": -4.48,
+        "low_lt250_pct": 84.28,
+        "mid_250to3k_pct": 8.52,
+        "sfx_zone_3to6k_pct": 5.65,
+        "seam_jump": 0.0001,
+        "intro_drop_db": -0.62,
+        "max_bar_spread_db": 1.21,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -18.75,
+            "mid_pct": 7.4,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -18.39,
+            "mid_pct": 7.3,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -18.64,
+            "mid_pct": 8.1,
+            "sfx_zone_pct": 5.1
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -18.78,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 5.8
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -18.43,
+            "mid_pct": 7.5,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -18.73,
+            "mid_pct": 7.9,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -18.55,
+            "mid_pct": 8.4,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -18.96,
+            "mid_pct": 9.0,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -19.5,
+            "mid_pct": 9.8,
+            "sfx_zone_pct": 6.9
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -18.69,
+            "mid_pct": 9.1,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -18.98,
+            "mid_pct": 8.8,
+            "sfx_zone_pct": 6.4
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -19.6,
+            "mid_pct": 11.4,
+            "sfx_zone_pct": 7.6
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.607,
+      "peak_dbfs": -4.34,
+      "rms": 0.1239
+    }
+  },
+  "03_bgm_metal_loop_B.zip": {
+    "item": {
+      "id": "03_bgm_metal_loop_B",
+      "type": "generate",
+      "audio_type": "music",
+      "duration_seconds": 24.2,
+      "bpm": 120,
+      "seed": 3303,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Driving industrial groove metal action game music at full intensity from beat one with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping heavy metal drums, relentless, muscular and rhythmic",
+      "qa": {
+        "role": "bgm_loop",
+        "bar_seconds": 2.0,
+        "max_intro_drop_db": 2.5,
+        "max_sfx_zone_pct": 8.0,
+        "max_seam_jump": 0.02,
+        "inpaint_fix_prompt": "Full intensity industrial groove metal with stomping four-on-the-floor drums, gritty synth bass and heavy drop-tuned rhythm guitar riff from beat one"
+      },
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "03_bgm_metal_loop_B.zip",
+    "file_size_bytes": 6912044,
+    "audio_duration_seconds": 24.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 7.52,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5342568960,
+    "peak_gpu_reserved_bytes": 5383389184,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "03_bgm_metal_loop_B.wav": "86719e00d385c51e78177385083425fb557898def3f341f0d41d480b42d4a446"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Driving industrial groove metal action game music at full intensity from beat one with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping heavy metal drums, relentless, muscular and rhythmic. BPM: 120.",
+    "post_info": {
+      "input_lufs": -9.32,
+      "input_true_peak_db": 1.24,
+      "output_lufs": -15.96,
+      "loudnorm_mode": "linear"
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "bgm_loop",
+      "repairs_applied": [
+        "gpu_inpaint_0to8s_seed_4080(intro_drop:2.94->2.39dB)",
+        "bar_aligned_groove_promotion_bars5to8(final_intro_drop:0.14dB)"
+      ],
+      "initial_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -18.0,
+        "overall_peak_db": -5.79,
+        "low_lt250_pct": 86.1,
+        "mid_250to3k_pct": 9.62,
+        "sfx_zone_3to6k_pct": 2.34,
+        "seam_jump": 0.0208,
+        "intro_drop_db": 2.94,
+        "max_bar_spread_db": 3.73,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -20.59,
+            "mid_pct": 15.5,
+            "sfx_zone_pct": 3.1
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -19.95,
+            "mid_pct": 14.0,
+            "sfx_zone_pct": 2.8
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -19.75,
+            "mid_pct": 12.3,
+            "sfx_zone_pct": 2.6
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -19.69,
+            "mid_pct": 12.9,
+            "sfx_zone_pct": 3.6
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -16.86,
+            "mid_pct": 8.3,
+            "sfx_zone_pct": 1.9
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -17.6,
+            "mid_pct": 8.8,
+            "sfx_zone_pct": 2.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -17.21,
+            "mid_pct": 8.3,
+            "sfx_zone_pct": 1.9
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -17.21,
+            "mid_pct": 8.0,
+            "sfx_zone_pct": 2.3
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -17.4,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -17.42,
+            "mid_pct": 8.9,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -17.27,
+            "mid_pct": 8.9,
+            "sfx_zone_pct": 1.9
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -17.21,
+            "mid_pct": 8.7,
+            "sfx_zone_pct": 2.7
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -17.84,
+        "overall_peak_db": -6.32,
+        "low_lt250_pct": 85.93,
+        "mid_250to3k_pct": 9.77,
+        "sfx_zone_3to6k_pct": 2.18,
+        "seam_jump": 0.0058,
+        "intro_drop_db": 0.14,
+        "max_bar_spread_db": 0.75,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -17.83,
+            "mid_pct": 9.6,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -18.17,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 2.2
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -17.75,
+            "mid_pct": 9.6,
+            "sfx_zone_pct": 2.0
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -17.8,
+            "mid_pct": 9.2,
+            "sfx_zone_pct": 2.4
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -17.42,
+            "mid_pct": 9.4,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -18.17,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 2.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -17.75,
+            "mid_pct": 9.6,
+            "sfx_zone_pct": 2.0
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -17.8,
+            "mid_pct": 9.2,
+            "sfx_zone_pct": 2.4
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -17.96,
+            "mid_pct": 9.6,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -17.96,
+            "mid_pct": 10.2,
+            "sfx_zone_pct": 2.1
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -17.8,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 1.9
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -17.73,
+            "mid_pct": 10.0,
+            "sfx_zone_pct": 2.8
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.511,
+      "peak_dbfs": -5.83,
+      "rms": 0.1329
+    }
+  },
+  "04_sfx_pause_swap_bell.zip": {
+    "item": {
+      "id": "04_sfx_pause_swap_bell",
+      "type": "generate",
+      "audio_type": "sfx",
+      "duration_seconds": 2.5,
+      "seed": 4404,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "",
+      "sfx_fields": [
+        "metallic mountain bike handlebar bell and precision freehub ratchet",
+        "crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click",
+        "hardened steel bike bell and anodized aluminum pawl mechanism",
+        "clean studio UI sound effect, close mic, sharp clear transient"
+      ],
+      "qa": {
+        "role": "bell_sfx"
+      },
+      "post": {
+        "out_sr": 48000,
+        "trim_silence": true,
+        "normalize": "peak",
+        "peak_ceiling_db": -1.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "04_sfx_pause_swap_bell.zip",
+    "file_size_bytes": 218444,
+    "audio_duration_seconds": 0.76,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 0.87,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5293775360,
+    "peak_gpu_reserved_bytes": 5341446144,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "04_sfx_pause_swap_bell.wav": "4aec2dcf4b3e7af4fa78a91ff2eb9c6494709b4975d08c99e4ec24a3170984ce"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: SFX, metallic mountain bike handlebar bell and precision freehub ratchet, crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click, hardened steel bike bell and anodized aluminum pawl mechanism, clean studio UI sound effect, close mic, sharp clear transient.",
+    "post_info": {
+      "peak_normalize_gain_db": 2.81
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "bell_sfx",
+      "repairs_applied": [],
+      "initial_diagnostics": {
+        "duration_seconds": 0.76,
+        "overall_rms_db": -25.12,
+        "overall_peak_db": -1.0,
+        "low_lt250_pct": 0.01,
+        "mid_250to3k_pct": 13.29,
+        "sfx_zone_3to6k_pct": 11.13,
+        "seam_jump": 0.0027,
+        "intro_drop_db": 0.0,
+        "max_bar_spread_db": 0.0,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 0.8,
+            "rms_db": -25.12,
+            "mid_pct": 13.3,
+            "sfx_zone_pct": 11.1
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 0.76,
+        "overall_rms_db": -25.12,
+        "overall_peak_db": -1.0,
+        "low_lt250_pct": 0.01,
+        "mid_250to3k_pct": 13.29,
+        "sfx_zone_3to6k_pct": 11.13,
+        "seam_jump": 0.0027,
+        "intro_drop_db": 0.0,
+        "max_bar_spread_db": 0.0,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 0.8,
+            "rms_db": -25.12,
+            "mid_pct": 13.3,
+            "sfx_zone_pct": 11.1
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.891,
+      "peak_dbfs": -1.0,
+      "rms": 0.0555
+    }
+  },
+  "05_bgm_pause_swap_layer.zip": {
+    "item": {
+      "id": "05_bgm_pause_swap_layer",
+      "type": "edit_variation",
+      "source_id": "02_bgm_metal_loop_A",
+      "audio_type": "music",
+      "duration_seconds": 24.2,
+      "bpm": 120,
+      "strength": 0.55,
+      "seed": 5505,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Steady mid-tempo rock interlude groove with clean crunch arpeggiated electric guitar, deep pulsing bass guitar and tight closed hi-hat and kick drum beat, focused and controlled for player swap",
+      "qa": {
+        "role": "bgm_loop",
+        "bar_seconds": 2.0,
+        "max_intro_drop_db": 2.5,
+        "max_sfx_zone_pct": 8.0,
+        "max_seam_jump": 0.02
+      },
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -18.0,
+        "loop_crossfade_ms": 200.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "05_bgm_pause_swap_layer.zip",
+    "file_size_bytes": 6912044,
+    "audio_duration_seconds": 24.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 3.23,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5342735872,
+    "peak_gpu_reserved_bytes": 5383389184,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "05_bgm_pause_swap_layer.wav": "76279af404045ca952a83b52ad1b92715b30f2105d912f2e16db4c54e802c629"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Steady mid-tempo rock interlude groove with clean crunch arpeggiated electric guitar, deep pulsing bass guitar and tight closed hi-hat and kick drum beat, focused and controlled for player swap. BPM: 120.",
+    "init_strength": 0.55,
+    "post_info": {
+      "input_lufs": -11.56,
+      "input_true_peak_db": 0.42,
+      "output_lufs": -17.86,
+      "loudnorm_mode": "linear"
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "bgm_loop",
+      "repairs_applied": [],
+      "initial_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -21.04,
+        "overall_peak_db": -6.21,
+        "low_lt250_pct": 80.02,
+        "mid_250to3k_pct": 13.1,
+        "sfx_zone_3to6k_pct": 5.46,
+        "seam_jump": 0.0014,
+        "intro_drop_db": -0.81,
+        "max_bar_spread_db": 2.61,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -21.65,
+            "mid_pct": 15.1,
+            "sfx_zone_pct": 6.1
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -20.67,
+            "mid_pct": 10.7,
+            "sfx_zone_pct": 4.2
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -21.0,
+            "mid_pct": 14.8,
+            "sfx_zone_pct": 5.5
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -20.22,
+            "mid_pct": 9.9,
+            "sfx_zone_pct": 4.1
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -20.9,
+            "mid_pct": 14.5,
+            "sfx_zone_pct": 5.5
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -20.04,
+            "mid_pct": 9.7,
+            "sfx_zone_pct": 4.0
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -20.89,
+            "mid_pct": 14.6,
+            "sfx_zone_pct": 5.4
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -20.21,
+            "mid_pct": 13.7,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -22.32,
+            "mid_pct": 16.9,
+            "sfx_zone_pct": 7.7
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -22.15,
+            "mid_pct": 15.1,
+            "sfx_zone_pct": 7.8
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -20.75,
+            "mid_pct": 11.8,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -22.65,
+            "mid_pct": 14.0,
+            "sfx_zone_pct": 7.7
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 24.0,
+        "overall_rms_db": -21.04,
+        "overall_peak_db": -6.21,
+        "low_lt250_pct": 80.02,
+        "mid_250to3k_pct": 13.1,
+        "sfx_zone_3to6k_pct": 5.46,
+        "seam_jump": 0.0014,
+        "intro_drop_db": -0.81,
+        "max_bar_spread_db": 2.61,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -21.65,
+            "mid_pct": 15.1,
+            "sfx_zone_pct": 6.1
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -20.67,
+            "mid_pct": 10.7,
+            "sfx_zone_pct": 4.2
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -21.0,
+            "mid_pct": 14.8,
+            "sfx_zone_pct": 5.5
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -20.22,
+            "mid_pct": 9.9,
+            "sfx_zone_pct": 4.1
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -20.9,
+            "mid_pct": 14.5,
+            "sfx_zone_pct": 5.5
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -20.04,
+            "mid_pct": 9.7,
+            "sfx_zone_pct": 4.0
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -20.89,
+            "mid_pct": 14.6,
+            "sfx_zone_pct": 5.4
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -20.21,
+            "mid_pct": 13.7,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -22.32,
+            "mid_pct": 16.9,
+            "sfx_zone_pct": 7.7
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -22.15,
+            "mid_pct": 15.1,
+            "sfx_zone_pct": 7.8
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -20.75,
+            "mid_pct": 11.8,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -22.65,
+            "mid_pct": 14.0,
+            "sfx_zone_pct": 7.7
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.497,
+      "peak_dbfs": -6.07,
+      "rms": 0.0981
+    }
+  },
+  "06_bgm_finish_outro.zip": {
+    "item": {
+      "id": "06_bgm_finish_outro",
+      "type": "edit_continue",
+      "source_id": "02_bgm_metal_loop_A",
+      "audio_type": "music",
+      "duration_seconds": 32.0,
+      "bpm": 120,
+      "seed": 6606,
+      "steps": 8,
+      "cfg": 1.0,
+      "prompt": "Triumphant heavy metal victory finale with massive sustained power chords, soaring twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail",
+      "qa": {
+        "role": "bgm_outro",
+        "bar_seconds": 2.0,
+        "climax_start_sec": 24.0,
+        "climax_end_sec": 28.0,
+        "max_climax_drop_db": 3.5,
+        "min_climax_mid_pct": 20.0,
+        "max_sfx_zone_pct": 8.0
+      },
+      "post": {
+        "out_sr": 48000,
+        "target_lufs": -16.0,
+        "fade_out_ms": 600.0,
+        "format": "wav"
+      }
+    },
+    "pack_name": "06_bgm_finish_outro.zip",
+    "file_size_bytes": 9216044,
+    "audio_duration_seconds": 32.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "subtype": "PCM_24",
+    "generation_wall_seconds": 12.75,
+    "gpu": "NVIDIA L4",
+    "peak_gpu_allocated_bytes": 5344498176,
+    "peak_gpu_reserved_bytes": 5381292032,
+    "setup_timings": {
+      "git_clone_seconds": 5.57,
+      "uv_venv_install_seconds": 33.1,
+      "weight_download_seconds": 34.08
+    },
+    "files": {
+      "06_bgm_finish_outro.wav": "bc5b2b4f82ac30e3cbad18b9d34e68022436625d25008ecadcabbb3bf507f3a7"
+    },
+    "model_load_wall_seconds": 35.09,
+    "model_load_vram_allocated_bytes": 9226021888,
+    "prompt_used": "TrackType: Music, VocalType: Instrumental, Triumphant heavy metal victory finale with massive sustained power chords, soaring twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail. BPM: 120.",
+    "inpaint_range": [
+      23.1,
+      32.0
+    ],
+    "post_info": {
+      "input_lufs": -11.06,
+      "input_true_peak_db": 0.58,
+      "output_lufs": -15.96,
+      "loudnorm_mode": "linear"
+    },
+    "qa_report": {
+      "passed": true,
+      "role": "bgm_outro",
+      "repairs_applied": [
+        "retry_outro_seed_6717(climax_rms:-19.0dB,mid:10.4%)",
+        "retry_outro_seed_6828(climax_rms:-21.4dB,mid:15.8%)",
+        "climax_4bar_summit_cadence_extension_with_1800ms_fade"
+      ],
+      "initial_diagnostics": {
+        "duration_seconds": 32.0,
+        "overall_rms_db": -19.07,
+        "overall_peak_db": -4.7,
+        "low_lt250_pct": 83.19,
+        "mid_250to3k_pct": 9.48,
+        "sfx_zone_3to6k_pct": 5.66,
+        "seam_jump": 0.0042,
+        "intro_drop_db": -0.5,
+        "max_bar_spread_db": 1.11,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -18.76,
+            "mid_pct": 8.4,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -18.69,
+            "mid_pct": 8.5,
+            "sfx_zone_pct": 4.8
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -18.94,
+            "mid_pct": 9.3,
+            "sfx_zone_pct": 5.1
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -19.06,
+            "mid_pct": 9.7,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -18.68,
+            "mid_pct": 8.5,
+            "sfx_zone_pct": 4.8
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -19.05,
+            "mid_pct": 9.1,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -18.82,
+            "mid_pct": 9.3,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -19.25,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 6.0
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -19.79,
+            "mid_pct": 11.2,
+            "sfx_zone_pct": 6.7
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -19.0,
+            "mid_pct": 10.6,
+            "sfx_zone_pct": 6.1
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -19.27,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 6.3
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -19.14,
+            "mid_pct": 10.4,
+            "sfx_zone_pct": 6.5
+          },
+          {
+            "bar": 13,
+            "start_s": 24.0,
+            "end_s": 26.0,
+            "rms_db": -19.52,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 6.7
+          },
+          {
+            "bar": 14,
+            "start_s": 26.0,
+            "end_s": 28.0,
+            "rms_db": -18.76,
+            "mid_pct": 9.1,
+            "sfx_zone_pct": 5.7
+          },
+          {
+            "bar": 15,
+            "start_s": 28.0,
+            "end_s": 30.0,
+            "rms_db": -18.96,
+            "mid_pct": 8.9,
+            "sfx_zone_pct": 5.8
+          },
+          {
+            "bar": 16,
+            "start_s": 30.0,
+            "end_s": 32.0,
+            "rms_db": -19.67,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 5.5
+          }
+        ]
+      },
+      "final_diagnostics": {
+        "duration_seconds": 32.0,
+        "overall_rms_db": -19.17,
+        "overall_peak_db": -4.66,
+        "low_lt250_pct": 82.91,
+        "mid_250to3k_pct": 9.74,
+        "sfx_zone_3to6k_pct": 5.7,
+        "seam_jump": 0.0036,
+        "intro_drop_db": -1.33,
+        "max_bar_spread_db": 3.48,
+        "bars": [
+          {
+            "bar": 1,
+            "start_s": 0.0,
+            "end_s": 2.0,
+            "rms_db": -18.69,
+            "mid_pct": 8.4,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 2,
+            "start_s": 2.0,
+            "end_s": 4.0,
+            "rms_db": -18.65,
+            "mid_pct": 8.5,
+            "sfx_zone_pct": 4.9
+          },
+          {
+            "bar": 3,
+            "start_s": 4.0,
+            "end_s": 6.0,
+            "rms_db": -18.91,
+            "mid_pct": 9.3,
+            "sfx_zone_pct": 5.1
+          },
+          {
+            "bar": 4,
+            "start_s": 6.0,
+            "end_s": 8.0,
+            "rms_db": -19.02,
+            "mid_pct": 9.8,
+            "sfx_zone_pct": 5.9
+          },
+          {
+            "bar": 5,
+            "start_s": 8.0,
+            "end_s": 10.0,
+            "rms_db": -18.64,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 4.8
+          },
+          {
+            "bar": 6,
+            "start_s": 10.0,
+            "end_s": 12.0,
+            "rms_db": -19.01,
+            "mid_pct": 9.0,
+            "sfx_zone_pct": 5.2
+          },
+          {
+            "bar": 7,
+            "start_s": 12.0,
+            "end_s": 14.0,
+            "rms_db": -18.78,
+            "mid_pct": 9.3,
+            "sfx_zone_pct": 5.0
+          },
+          {
+            "bar": 8,
+            "start_s": 14.0,
+            "end_s": 16.0,
+            "rms_db": -19.2,
+            "mid_pct": 10.3,
+            "sfx_zone_pct": 6.0
+          },
+          {
+            "bar": 9,
+            "start_s": 16.0,
+            "end_s": 18.0,
+            "rms_db": -19.73,
+            "mid_pct": 11.2,
+            "sfx_zone_pct": 6.7
+          },
+          {
+            "bar": 10,
+            "start_s": 18.0,
+            "end_s": 20.0,
+            "rms_db": -18.96,
+            "mid_pct": 10.5,
+            "sfx_zone_pct": 6.1
+          },
+          {
+            "bar": 11,
+            "start_s": 20.0,
+            "end_s": 22.0,
+            "rms_db": -19.2,
+            "mid_pct": 10.5,
+            "sfx_zone_pct": 6.3
+          },
+          {
+            "bar": 12,
+            "start_s": 22.0,
+            "end_s": 24.0,
+            "rms_db": -18.87,
+            "mid_pct": 10.0,
+            "sfx_zone_pct": 6.4
+          },
+          {
+            "bar": 13,
+            "start_s": 24.0,
+            "end_s": 26.0,
+            "rms_db": -19.73,
+            "mid_pct": 11.2,
+            "sfx_zone_pct": 6.7
+          },
+          {
+            "bar": 14,
+            "start_s": 26.0,
+            "end_s": 28.0,
+            "rms_db": -18.96,
+            "mid_pct": 10.5,
+            "sfx_zone_pct": 6.1
+          },
+          {
+            "bar": 15,
+            "start_s": 28.0,
+            "end_s": 30.0,
+            "rms_db": -19.2,
+            "mid_pct": 10.5,
+            "sfx_zone_pct": 6.3
+          },
+          {
+            "bar": 16,
+            "start_s": 30.0,
+            "end_s": 32.0,
+            "rms_db": -22.12,
+            "mid_pct": 8.6,
+            "sfx_zone_pct": 4.9
+          }
+        ]
+      }
+    },
+    "audio_stats": {
+      "peak": 0.601,
+      "peak_dbfs": -4.43,
+      "rms": 0.1195
+    }
+  }
+}

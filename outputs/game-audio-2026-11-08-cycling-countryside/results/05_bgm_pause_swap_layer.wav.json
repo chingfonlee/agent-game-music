@@ -1,0 +1,54 @@
+{
+  "item": {
+    "id": "05_bgm_pause_swap_layer",
+    "type": "edit_variation",
+    "source_id": "02_bgm_countryside_loop_A",
+    "audio_type": "music",
+    "duration_seconds": 24.0,
+    "bpm": 120,
+    "strength": 0.55,
+    "seed": 505,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Relaxed countryside acoustic groove with gentle muted acoustic guitar chords, warm electric piano, soft bass pulse and light shaker rhythm, calm, breezy interlude for player swap",
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -18.0,
+      "loop_crossfade_ms": 200.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "05_bgm_pause_swap_layer.zip",
+  "file_size_bytes": 6854444,
+  "audio_duration_seconds": 23.8,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 4.35,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5342727680,
+  "peak_gpu_reserved_bytes": 5362417664,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "05_bgm_pause_swap_layer.wav": "4306f086b7301f7f42ad229c63227610718a6c683fcf176df598dee90fb76e18"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Relaxed countryside acoustic groove with gentle muted acoustic guitar chords, warm electric piano, soft bass pulse and light shaker rhythm, calm, breezy interlude for player swap. BPM: 120.",
+  "init_strength": 0.55,
+  "post_info": {
+    "input_lufs": -18.74,
+    "input_true_peak_db": -1.56,
+    "output_lufs": -18.0,
+    "loudnorm_mode": "dynamic"
+  },
+  "audio_stats": {
+    "peak": 0.854,
+    "peak_dbfs": -1.37,
+    "rms": 0.0994
+  }
+}

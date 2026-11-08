@@ -1,0 +1,51 @@
+{
+  "item": {
+    "id": "03_bgm_countryside_loop_B",
+    "type": "generate",
+    "audio_type": "music",
+    "duration_seconds": 24.2,
+    "bpm": 120,
+    "seed": 3088,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Bright upbeat arcade sports synth-pop game music with sparkling plucky synth melody, funky electric piano chords, punchy synth bass and tight four-on-the-floor drums, sunny, energetic and rhythmic",
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -16.0,
+      "loop_crossfade_ms": 200.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "03_bgm_countryside_loop_B.zip",
+  "file_size_bytes": 6912044,
+  "audio_duration_seconds": 24.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 2.78,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5340829184,
+  "peak_gpu_reserved_bytes": 5381292032,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "03_bgm_countryside_loop_B.wav": "249af9aacf7b44bed72c44bd43b2501b618849ceb09347b084b2b3102c4fdf6d"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Bright upbeat arcade sports synth-pop game music with sparkling plucky synth melody, funky electric piano chords, punchy synth bass and tight four-on-the-floor drums, sunny, energetic and rhythmic. BPM: 120.",
+  "post_info": {
+    "input_lufs": -14.28,
+    "input_true_peak_db": 0.18,
+    "output_lufs": -15.93,
+    "loudnorm_mode": "linear"
+  },
+  "audio_stats": {
+    "peak": 0.834,
+    "peak_dbfs": -1.58,
+    "rms": 0.1301
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "item": {
+    "id": "06_bgm_finish_outro",
+    "type": "edit_continue",
+    "source_id": "02_bgm_countryside_loop_A",
+    "audio_type": "music",
+    "duration_seconds": 32.0,
+    "bpm": 120,
+    "seed": 606,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Uplifting acoustic indie pop victory finale cadence with bright resolving guitar chords, celebratory brass swell, crisp final cymbal hit and clean fading reverb tail",
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -16.0,
+      "fade_out_ms": 600.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "06_bgm_finish_outro.zip",
+  "file_size_bytes": 9216044,
+  "audio_duration_seconds": 32.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 5.08,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5344498176,
+  "peak_gpu_reserved_bytes": 5381292032,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "06_bgm_finish_outro.wav": "cbccfa5ff53cce7039a59d232597d0c9c051d449411663031f6e0299013f660f"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Uplifting acoustic indie pop victory finale cadence with bright resolving guitar chords, celebratory brass swell, crisp final cymbal hit and clean fading reverb tail. BPM: 120.",
+  "inpaint_range": [
+    23.0,
+    32.0
+  ],
+  "post_info": {
+    "input_lufs": -16.13,
+    "input_true_peak_db": 0.08,
+    "output_lufs": -15.97,
+    "loudnorm_mode": "dynamic"
+  },
+  "audio_stats": {
+    "peak": 0.891,
+    "peak_dbfs": -1.0,
+    "rms": 0.1065
+  }
+}

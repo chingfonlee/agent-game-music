@@ -1,0 +1,96 @@
+# Step 2: 編曲規格、A/B 對照與自動驗收規格表 (ARR-SPEC v2 with QA Gates)
+# 依據 jtydhr88/music-composition-skills + sora16bit/codex-game-music-skill + SJY051/music-composition
+
+meta:
+  project: "Mountain Hill-Climb Cycling Trainer Time Trial (Heavy Metal Edition)"
+  target_backend: "stable-audio-3 (via colab-audio-studio-mcp)"
+  bpm: 120                 # 1 bar = 2.00s (鎖定 60 RPM 爬坡抽車 / 120 RPM 衝刺踏頻)
+  meter: "4/4"
+  key_mode: "E Minor / E Phrygian Dominant"
+  loop_bars: 12
+  loop_seconds_exact: 24.0
+  generate_seconds_with_crossfade: 24.2
+  crossfade_ms: 200.0
+  sample_rate: 48000
+
+shared_invariants:
+  scene: "丘陵山地單車訓練台計時賽 — 陡坡攻頂與高速巡航"
+  cadence_function: "120 BPM 強勁重金屬雙踏與悶音吉他切音，從第 1 拍即滿編推進（無慢速前奏）"
+  negative_space: "控制 3-6 kHz 刺耳銅鈸，保留計時倒數與單車鈴聲穿透空間"
+  vocal_policy: "100% Instrumental (嚴禁任何 vocal/scream/choir/voice 字眼)"
+
+qa_gates:
+  loop_max_intro_drop_db: 2.5        # 第 1-2 小節與最後 4 小節 RMS 落差不得超過 2.5 dB
+  loop_max_seam_jump: 0.02           # 無縫交疊後首尾取樣點最大壓差
+  bgm_max_sfx_zone_3to6k_pct: 8.0    # 3-6 kHz 頻段能量上限 (%)
+  outro_min_climax_mid_pct: 20.0     # 衝線段 (24-28s) 中頻旋律/和弦最低佔比 (%)
+  outro_max_climax_drop_db: 3.5      # 衝線段 (24-28s) 相對主循環最大允許音量落差 (dB)
+
+variants:
+  version_A_melodic_heavy_metal:
+    id: "02_bgm_metal_loop_A"
+    concept: "旋律重金屬鐵馬衝鋒風 (Melodic Heavy Metal Gallop) — 悶音切音節奏吉他 + 雙吉他熱血旋律主奏"
+    roster:
+      lead: "soaring melodic twin-lead electric guitar riff"
+      harmony: "tight palm-muted chugging distorted rhythm guitars"
+      bass: "driving pick-style heavy electric bass locked with kick drum"
+      drums: "punchy energetic heavy metal double-kick drums and crisp snare"
+    compiled_sa3_prompt: >-
+      High-energy melodic heavy metal game music starting immediately at full intensity
+      with tight palm-muted galloping rhythm guitars, soaring melodic lead guitar riff,
+      driving heavy bass and punchy double-kick drums, powerful and motivating
+
+  version_B_industrial_groove_metal:
+    id: "03_bgm_metal_loop_B"
+    concept: "現代工業重裝節奏金屬風 (Industrial Groove Metal) — 降調重型 Riff + 合成器低音疊加（高扭矩爬坡感）"
+    roster:
+      lead: "aggressive syncopated heavy guitar riff and sharp synth hook"
+      harmony: "heavy drop-tuned rhythm guitars and gritty analog synth layer"
+      bass: "thick distorted metal bass and sub-bass pulse"
+      drums: "stomping four-on-the-floor industrial metal drum groove and tight percussion"
+    compiled_sa3_prompt: >-
+      Driving industrial groove metal action game music at full intensity from beat one
+      with heavy syncopated drop-tuned guitar riffs, gritty synth bass pulse and stomping
+      heavy metal drums, relentless, muscular and rhythmic
+
+state_transitions:
+  countdown_3s_sfx:
+    id: "01_sfx_countdown_3s"
+    duration_seconds: 3.5
+    sfx_fields:
+      sound_source: "electronic race start timer and metallic stadium horn"
+      sound_action: "three distinct rhythmic low-mid electronic countdown beeps once per second followed by a bright high-energy race start horn blast"
+      sound_material: "crisp digital timer synth and punchy metallic air horn"
+      sound_space: "mountain race start gate, clean close studio mix, tight punchy transient"
+
+  pause_rider_swap_sfx:
+    id: "04_sfx_pause_swap_bell"
+    duration_seconds: 2.5
+    sfx_fields:
+      sound_source: "metallic mountain bike handlebar bell and precision freehub ratchet"
+      sound_action: "crisp bright double bell ring ding-ding followed by a rapid metallic coasting gear click"
+      sound_material: "hardened steel bike bell and anodized aluminum pawl mechanism"
+      sound_space: "clean studio UI sound effect, close mic, sharp clear transient"
+
+  pause_rider_swap_bgm_layer:
+    id: "05_bgm_pause_swap_layer"
+    type: "edit_variation"
+    source_id: "02_bgm_metal_loop_A"
+    strength: 0.55
+    target_lufs: -18.0
+    concept: "暫停換人狀態 — 抽離高破音主奏吉他，保留 120 BPM 貝斯、小鼓與 Clean/Crunch 電吉他分解和弦"
+    compiled_sa3_prompt: >-
+      Steady mid-tempo rock interlude groove with clean crunch arpeggiated electric guitar,
+      deep pulsing bass guitar and tight closed hi-hat and kick drum beat, focused and
+      controlled for player swap
+
+  finish_line_outro:
+    id: "06_bgm_finish_outro"
+    type: "edit_continue"
+    source_id: "02_bgm_metal_loop_A"
+    duration_seconds: 32.0
+    target_lufs: -16.0
+    concept: "登頂衝線結算 — 在第 24-28 秒爆發重金屬勝利雙吉他終止強力和弦，並於 28-32 秒乾淨收尾"
+    compiled_sa3_prompt: >-
+      Triumphant heavy metal victory finale with massive sustained power chords, soaring
+      twin-lead guitar harmony climax, crashing cymbals and clean stadium reverb tail

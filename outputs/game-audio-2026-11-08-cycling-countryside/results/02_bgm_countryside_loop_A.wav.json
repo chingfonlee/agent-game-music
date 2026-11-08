@@ -1,0 +1,51 @@
+{
+  "item": {
+    "id": "02_bgm_countryside_loop_A",
+    "type": "generate",
+    "audio_type": "music",
+    "duration_seconds": 24.2,
+    "bpm": 120,
+    "seed": 2026,
+    "steps": 8,
+    "cfg": 1.0,
+    "prompt": "Upbeat countryside acoustic indie pop game music with crisp strumming acoustic guitar, bright flute-like synth melody, bouncy electric bass and steady driving drum beat with shaker, sunny, breezy and motivating",
+    "post": {
+      "out_sr": 48000,
+      "target_lufs": -16.0,
+      "loop_crossfade_ms": 200.0,
+      "format": "wav"
+    }
+  },
+  "pack_name": "02_bgm_countryside_loop_A.zip",
+  "file_size_bytes": 6912044,
+  "audio_duration_seconds": 24.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 2.9,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5340829184,
+  "peak_gpu_reserved_bytes": 5381292032,
+  "setup_timings": {
+    "git_clone_seconds": 5.62,
+    "uv_venv_install_seconds": 30.1,
+    "weight_download_seconds": 35.33
+  },
+  "files": {
+    "02_bgm_countryside_loop_A.wav": "c0c974fb38f4d40111af8f2001f1a0ed5a4e3392e7e168cc077fc78239251b09"
+  },
+  "model_load_wall_seconds": 36.04,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Upbeat countryside acoustic indie pop game music with crisp strumming acoustic guitar, bright flute-like synth melody, bouncy electric bass and steady driving drum beat with shaker, sunny, breezy and motivating. BPM: 120.",
+  "post_info": {
+    "input_lufs": -16.38,
+    "input_true_peak_db": -1.41,
+    "output_lufs": -16.09,
+    "loudnorm_mode": "linear"
+  },
+  "audio_stats": {
+    "peak": 0.888,
+    "peak_dbfs": -1.04,
+    "rms": 0.1127
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "item": {
+    "id": "04_smoke_synthwave_continue_30s",
+    "type": "edit_continue",
+    "source_id": "02_smoke_synthwave_bgm",
+    "audio_type": "music",
+    "duration_seconds": 30.0,
+    "seed": 1,
+    "prompt": "Synthwave outro with fading pads"
+  },
+  "pack_name": "04_smoke_synthwave_continue_30s.zip",
+  "file_size_bytes": 7938044,
+  "audio_duration_seconds": 30.0,
+  "sample_rate": 44100,
+  "channels": 2,
+  "subtype": "PCM_24",
+  "generation_wall_seconds": 1.46,
+  "gpu": "NVIDIA L4",
+  "peak_gpu_allocated_bytes": 5343754752,
+  "peak_gpu_reserved_bytes": 5360320512,
+  "setup_timings": {
+    "git_clone_seconds": 5.82,
+    "uv_venv_install_seconds": 31.99,
+    "weight_download_seconds": 34.35
+  },
+  "files": {
+    "04_smoke_synthwave_continue_30s.wav": "d6e395f03796a35c75b70aaa82577e2d4e0a3232824396080d8dd6266d5d27fc"
+  },
+  "model_load_wall_seconds": 34.97,
+  "model_load_vram_allocated_bytes": 9226021888,
+  "prompt_used": "TrackType: Music, VocalType: Instrumental, Synthwave outro with fading pads.",
+  "inpaint_range": [
+    19.0,
+    30.0
+  ],
+  "audio_stats": {
+    "peak": 1.0,
+    "peak_dbfs": 0.0,
+    "rms": 0.1799
+  }
+}
