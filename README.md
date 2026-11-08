@@ -1,5 +1,7 @@
 # Agent Game Music (AGM) 🎮🎵
 
+[ English ](./README.md) | [ 日本語 ](./README.ja.md) | [ 繁體中文 ](./README.zh-TW.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Model: Stable-Audio-3](https://img.shields.io/badge/Model-Stable--Audio--3-purple.svg)](https://huggingface.co/stabilityai/stable-audio-3-medium)
@@ -161,15 +163,20 @@ Full diagnostics report: [04_v4_validation_report.md](./outputs/game-audio-2026-
 
 ---
 
-## 🤝 Citations & Acknowledgments
+## 📚 Referenced Open-Source Projects & Architecture Breakdown
 
-This project builds upon the foundational research and open-source contributions of:
-- **`kanaworksai-hue/audio-studio-mcp`**: MCP server implementation for Stable Audio 3.
-- **`Stability-AI/stable-audio-3`**: High-fidelity latent diffusion audio model.
-- **`sora16bit/codex-game-music-skill`**: Scene-first game music directing and critique contracts.
-- **`jtydhr88/music-composition-skills`** & **`SJY051/music-composition`**: A/B arrangement specification and quantitative diagnostic tables.
-- **`yzfly/awesome-music-prompts`**: Prompt compilation heuristics for generative audio.
-- **`pytorch/audio`**: High-performance HDemucs music demixing models.
+This project builds upon, synthesizes, and refines the following foundational open-source projects:
+
+| Referenced Project | Core Role & Integration into AGM |
+| :--- | :--- |
+| **`kanaworksai-hue/audio-studio-mcp`** | **Model Execution & Audio Processing MCP Foundation**<br>Provides the PyTorch SDPA backend for fast inference, prompt prefix structuring (`TrackType: Music...`), EBU R128 LUFS loudness normalization, `make_loop` crossfade logic, and local inpainting/continuation wrappers. |
+| **`Stability-AI/stable-audio-3`** | **Core Generative Audio Diffusion Model (`stabilityai/stable-audio-3-medium`)**<br>1.4B DiT + T5Gemma architecture delivering pristine 44.1 kHz stereo audio with distilled 8-step sampling (~11 it/s on Colab L4). |
+| **`sora16bit/codex-game-music-skill`** | **Scene-First Game Music Methodology & Critique Contracts**<br>Establishes the state machine paradigm (Countdown → Main Loop → Low-Intensity Stem → Victory Outro), Acoustic Surfaces (Point, Line, Plane), SFX Negative Space ($3000\text{--}6000\text{ Hz}$ pocket protection), and the 8-point critique evaluation rubric. |
+| **`jtydhr88/music-composition-skills`** | **A/B Arrangement Specification Framework (`ARR-SPEC`)**<br>Formalizes `02_arr_spec_ab.yaml` shared invariants (BPM, bar math, target LUFS, frequency boundaries) and segregates Version A (driving rhythm) from Version B (intense pressure) instrument rosters. |
+| **`SJY051/music-composition`** | **Quantitative Bar-by-Bar Diagnostic Tables**<br>Replaces holistic track averages with granular bar-by-bar RMS tracking, bar dynamic spread, climax drop thresholds, and spectral energy balance. |
+| **`yzfly/awesome-music-prompts`** | **Prompt Compilation Heuristics & 4-Field SFX Engineering**<br>Supplies the anti-intro trap cue (`"starting immediately at full intensity from beat one"`) and the structured 4-field SFX methodology (Sound Source, Action, Material, Space). |
+| **`pytorch/audio` (TorchAudio HDemucs)** | **44.1 kHz Sample-Locked Interactive Stem Separation**<br>Integrates the `HDEMUCS_HIGH_MUSDB_PLUS` model at native 44.1 kHz to separate drums, bass, and melodic lines with zero phase delay ($1,058,400$ samples match, $0.0\text{ ms}$ lag). |
+| **`googlecolab/colab-cli`** | **Autonomous Cloud GPU Lifecycle & Billing Protection**<br>Enables non-interactive GPU provisioning, progress monitoring, and guaranteed automatic VM termination (`colab stop`) in the `finally:` block. |
 
 ---
 
