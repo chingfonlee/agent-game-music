@@ -1,9 +1,9 @@
 # Agent Game Music (AGM) 技能穩定度全維度驗證報告
 
-> **測試執行時間**：2026-11-09 12:22:30  
-> **總耗時**：0.984 秒  
+> **測試執行時間**：2026-11-09 13:05:45  
+> **總耗時**：1.022 秒  
 > **測試環境**：本機離線 Python 3.10+ / Pure NumPy & SciPy (Zero Cloud Spend: 0.00 CU)  
-> **測試結果**：**20 / 20 PASSED** (失敗: 0, 錯誤: 0, 略過: 0)  
+> **測試結果**：**21 / 21 PASSED** (失敗: 0, 錯誤: 0, 略過: 0)  
 
 ---
 
@@ -57,6 +57,8 @@ test_T4_2_claude_code_export_structure (tests.test_agent_compatibility.TestDimen
 T4.2a: 檢驗 skills_export/claude-code/ 目錄結構與文件完整性。 ... ok
 test_T4_2_codex_export_structure (tests.test_agent_compatibility.TestDimension4AgentCompatibility.test_T4_2_codex_export_structure)
 T4.2b: 檢驗 skills_export/codex/ 目錄結構與合約文件完整性。 ... ok
+test_T4_3_tri_directory_template_synchronization (tests.test_agent_compatibility.TestDimension4AgentCompatibility.test_T4_3_tri_directory_template_synchronization)
+T4.3: 檢驗 .agents/skills 與 skills_export/ 兩大封裝之腳本模板是否 100% 保持同步。 ... ok
 test_T3_1_unhandled_crash_triggers_colab_stop (tests.test_cloud_lifecycle_failsafe.TestDimension3CloudLifecycleFailsafe.test_T3_1_unhandled_crash_triggers_colab_stop)
 T3.1: 模擬遠端或本機例外崩潰，驗證 finally: 區塊必然呼叫 colab stop。 ... ok
 test_T3_2_keyboard_interrupt_preserves_colab_stop (tests.test_cloud_lifecycle_failsafe.TestDimension3CloudLifecycleFailsafe.test_T3_2_keyboard_interrupt_preserves_colab_stop)
@@ -85,7 +87,7 @@ test_T4_2_sample_manifest_schema_compliance (tests.test_offline_dsp.TestDimensio
 T4.2: 檢驗 sample_manifest.json 是否完整具備 v4 規範欄位。 ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 0.984s
+Ran 21 tests in 1.022s
 
 OK
 ```

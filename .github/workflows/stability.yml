@@ -1,0 +1,41 @@
+name: AGM Stability & Multi-Agent Template CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-stability-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Pure CPU Test Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy scipy pyyaml soundfile
+
+      - name: Run Unittest Discovery (All Dimensions)
+        run: |
+          python -m unittest discover tests -v
+
+      - name: Execute Full 5-Dimension Stability Benchmark
+        run: |
+          python tests/run_all_stability_tests.py
+
+      - name: Verify 3-Axis Archetype Resolver & Self-Test
+        run: |
+          python scripts/extract_archetype_fingerprint.py --config configs/composable_archetypes.yaml --self-test
+
+      - name: Check Git Working Tree Cleanliness
+        run: |
+          git status --short

@@ -5,6 +5,7 @@ Verifies:
 - T4.2: Contract compliance and structural completeness across all export packages.
 """
 
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -68,6 +69,21 @@ class TestDimension4AgentCompatibility(unittest.TestCase):
         recipes_text = (codex_pkg / "scene-recipes.md").read_text(encoding="utf-8")
         self.assertIn("Racing & Cycling Time Trial", recipes_text)
         self.assertIn("Cyberpunk Infiltration", recipes_text)
+
+    def test_T4_3_tri_directory_template_synchronization(self):
+        """T4.3: 檢驗 .agents/skills 與 skills_export/ 兩大封裝之腳本模板是否 100% 保持同步。"""
+        canonical_dir = self.root / ".agents/skills/colab-audio-studio-mcp/scripts"
+        claude_dir = self.root / "skills_export/claude-code/colab-audio-studio-mcp/scripts"
+        codex_dir = self.root / "skills_export/codex/colab-game-audio-skill/scripts"
+
+        scripts = ["generate_remote_template.py", "job_remote_template.py", "supervise_template.py"]
+        for s in scripts:
+            can_hash = hashlib.sha256((canonical_dir / s).read_bytes()).hexdigest()
+            claude_hash = hashlib.sha256((claude_dir / s).read_bytes()).hexdigest()
+            codex_hash = hashlib.sha256((codex_dir / s).read_bytes()).hexdigest()
+
+            self.assertEqual(can_hash, claude_hash, f"Template drift: {s} differs between .agents and claude-code")
+            self.assertEqual(can_hash, codex_hash, f"Template drift: {s} differs between .agents and codex")
 
 
 if __name__ == "__main__":

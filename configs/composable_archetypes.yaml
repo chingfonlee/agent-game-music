@@ -1,0 +1,224 @@
+# ==============================================================================
+# agent-game-music — 三軸正交聲學特徵配置表 (Composable Archetypes Config)
+# 6 Timbre Bases × 6 State Envelopes × 4 SFX Collision Masks = 144 組可自適應 QA 組合
+# ==============================================================================
+
+version: "2.1"
+description: "三軸解耦遊戲音訊聲學門檻與閉環處方配置表"
+
+# ------------------------------------------------------------------------------
+# 軸 1：音色基底 (Timbre Bases) — 定義各曲風之自然頻譜分佈與安全 EQ 邊界
+# ------------------------------------------------------------------------------
+timbre_bases:
+  heavy_metal_drop_tuned:
+    description: "重金屬/工業金屬：低沉悶音電吉他、大雙鼓、貝斯主導，低頻極重（由 outputs/ 11 軌真實母帶聚合）"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 63.4, p50: 80.1, p90: 84.7 }
+      mid_250to3k_hz: { p10: 9.6, p50: 12.1, p90: 32.1 }
+      presence_3to6k_hz: { p10: 0.6, p50: 2.2, p90: 7.1 }
+      air_gt6k_hz: { p10: 0.4, p50: 1.6, p90: 2.3 }
+    spectral_centroid_hz: { p10: 234.6, p50: 508.4, p90: 661.3 }
+    crest_factor_db: { p10: 12.0, p50: 14.3, p90: 16.4 }
+    transient_density_per_sec: { p10: 5.3, p50: 7.5, p90: 9.6 }
+    max_safe_notch_cut_db: -4.5
+    stem_separation_hints:
+      other_highpass_hz: 1800.0
+
+  cyberpunk_dystopian_synth:
+    description: "賽博龐克/暗黑合成器浪潮：類比厚重 Sub-bass、銳利 Hi-hat、中頻精簡"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 62.0, p50: 70.0, p90: 76.0 }
+      mid_250to3k_hz: { p10: 16.0, p50: 22.0, p90: 28.0 }
+      presence_3to6k_hz: { p10: 3.0, p50: 5.5, p90: 7.5 }
+      air_gt6k_hz: { p10: 1.5, p50: 3.0, p90: 5.0 }
+    spectral_centroid_hz: { p10: 950.0, p50: 1400.0, p90: 2100.0 }
+    crest_factor_db: { p10: 9.0, p50: 11.5, p90: 14.0 }
+    transient_density_per_sec: { p10: 2.5, p50: 4.0, p90: 6.0 }
+    max_safe_notch_cut_db: -5.0
+    stem_separation_hints:
+      other_highpass_hz: 2200.0
+
+  epic_orchestral_hybrid:
+    description: "史詩交響/混種管弦：太鼓打擊樂、低音大提琴、大動態銅管長號群"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 48.0, p50: 58.0, p90: 68.0 }
+      mid_250to3k_hz: { p10: 22.0, p50: 30.0, p90: 38.0 }
+      presence_3to6k_hz: { p10: 4.5, p50: 7.0, p90: 9.5 }
+      air_gt6k_hz: { p10: 2.0, p50: 4.0, p90: 6.5 }
+    spectral_centroid_hz: { p10: 1100.0, p50: 1650.0, p90: 2400.0 }
+    crest_factor_db: { p10: 14.0, p50: 17.5, p90: 22.0 }
+    transient_density_per_sec: { p10: 1.8, p50: 3.2, p90: 5.0 }
+    max_safe_notch_cut_db: -4.0
+    stem_separation_hints:
+      other_highpass_hz: 1500.0
+
+  chiptune_pulse_fm:
+    description: "8/16-bit 復古像素：方波脈衝與 FM 合成，自然富含 3-6kHz 高頻泛音"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 38.0, p50: 46.0, p90: 54.0 }
+      mid_250to3k_hz: { p10: 30.0, p50: 38.0, p90: 46.0 }
+      presence_3to6k_hz: { p10: 8.0, p50: 12.5, p90: 16.0 }
+      air_gt6k_hz: { p10: 1.0, p50: 2.5, p90: 4.5 }
+    spectral_centroid_hz: { p10: 1400.0, p50: 2100.0, p90: 2900.0 }
+    crest_factor_db: { p10: 7.5, p50: 9.5, p90: 12.0 }
+    transient_density_per_sec: { p10: 4.0, p50: 6.5, p90: 9.0 }
+    max_safe_notch_cut_db: -3.0
+    stem_separation_hints:
+      other_highpass_hz: 2400.0
+
+  acoustic_celtic_folk:
+    description: "民謠/居爾特冒險：木吉他指彈、寶藍鼓、愛爾蘭哨笛，聲響自然溫暖"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 42.0, p50: 52.0, p90: 60.0 }
+      mid_250to3k_hz: { p10: 28.0, p50: 36.0, p90: 44.0 }
+      presence_3to6k_hz: { p10: 4.0, p50: 6.5, p90: 8.5 }
+      air_gt6k_hz: { p10: 2.0, p50: 4.5, p90: 7.0 }
+    spectral_centroid_hz: { p10: 1200.0, p50: 1750.0, p90: 2300.0 }
+    crest_factor_db: { p10: 12.0, p50: 15.0, p90: 18.5 }
+    transient_density_per_sec: { p10: 2.0, p50: 3.8, p90: 5.5 }
+    max_safe_notch_cut_db: -3.5
+    stem_separation_hints:
+      other_highpass_hz: 1600.0
+
+  piano_musicbox_delicate:
+    description: "高音獨奏防悶基底：清亮鋼琴、八音盒、水晶琴，高頻清脆，保留高頻通透性"
+    spectral_bands_pct:
+      low_lt250_hz: { p10: 32.0, p50: 42.0, p90: 50.0 }
+      mid_250to3k_hz: { p10: 34.0, p50: 42.0, p90: 50.0 }
+      presence_3to6k_hz: { p10: 8.5, p50: 13.0, p90: 17.5 }
+      air_gt6k_hz: { p10: 2.5, p50: 5.0, p90: 8.0 }
+    spectral_centroid_hz: { p10: 1500.0, p50: 2300.0, p90: 3200.0 }
+    crest_factor_db: { p10: 13.0, p50: 16.5, p90: 21.0 }
+    transient_density_per_sec: { p10: 1.5, p50: 3.0, p90: 4.8 }
+    max_safe_notch_cut_db: -2.0
+    stem_separation_hints:
+      other_highpass_hz: 2000.0
+
+
+# ------------------------------------------------------------------------------
+# 軸 2：遊戲狀態包絡 (State Envelopes) — 定義遊戲狀態機各節點的動態與循環門檻
+# ------------------------------------------------------------------------------
+state_envelopes:
+  state_combat_driving_loop:
+    description: "高張力競速/戰鬥主幹循環：開頭滿編無前奏、接縫嚴格對齊"
+    max_intro_drop_db: 2.5
+    crest_factor_db: { p10: 8.5, p50: 11.5, p90: 14.5 }
+    max_bar_spread_db: 2.2
+    min_bar_chroma_similarity: 0.85
+    max_seam_jump: 0.02
+    onset_align_mode: "transient_first"
+
+  state_exploration_moderate_loop:
+    description: "中等張力探索循環：允許適度動態起伏與副歌小節推升"
+    max_intro_drop_db: 3.5
+    crest_factor_db: { p10: 10.0, p50: 13.5, p90: 17.0 }
+    max_bar_spread_db: 3.2
+    min_bar_chroma_similarity: 0.80
+    max_seam_jump: 0.02
+    onset_align_mode: "transient_first"
+
+  state_ambient_stealth_loop:
+    description: "極低張力潛行/氛圍長音循環：零鼓點，依靠和聲色度無痕循環"
+    max_intro_drop_db: 4.5
+    crest_factor_db: { p10: 12.0, p50: 15.5, p90: 19.0 }
+    max_bar_spread_db: 4.0
+    min_bar_chroma_similarity: 0.88
+    max_seam_jump: 0.008
+    onset_align_mode: "chroma_first"
+
+  state_pause_low_density:
+    description: "暫停/換人/選單低密度伴奏層：低通濾波後之節奏底，保留語音負空間"
+    max_intro_drop_db: 3.0
+    crest_factor_db: { p10: 9.0, p50: 12.0, p90: 15.0 }
+    max_bar_spread_db: 2.5
+    min_bar_chroma_similarity: 0.82
+    max_seam_jump: 0.02
+    onset_align_mode: "transient_first"
+
+  state_outro_climax_stinger:
+    description: "勝利衝線爆發型終止式：高潮段具備強烈中頻推升與終止和弦延音"
+    max_intro_drop_db: 3.5
+    crest_factor_db: { p10: 9.5, p50: 13.0, p90: 16.5 }
+    max_bar_spread_db: 4.5
+    min_bar_chroma_similarity: 0.70
+    max_seam_jump: 0.15
+    require_climax_mid_boost: true
+    min_climax_relative_mid_ratio: 1.15
+    onset_align_mode: "climax_cadence"
+
+  state_outro_resolve_fade:
+    description: "非爆發型柔和消散結尾：解謎完成、夜晚營火、脫離險境，平滑安靜收尾"
+    max_intro_drop_db: 4.0
+    crest_factor_db: { p10: 11.0, p50: 14.5, p90: 18.0 }
+    max_bar_spread_db: 4.0
+    min_bar_chroma_similarity: 0.75
+    max_seam_jump: 0.15
+    require_climax_mid_boost: false
+    min_climax_relative_mid_ratio: 0.90
+    onset_align_mode: "smooth_fade_out"
+
+
+# ------------------------------------------------------------------------------
+# 軸 3：前景 SFX 碰撞遮罩 (SFX Collision Masks) — 定義前景音效的頻率避讓規格
+# ------------------------------------------------------------------------------
+sfx_collision_masks:
+  sfx_racing_timer_horn:
+    description: "競速發車倒數嗶聲與單車金屬鈴聲：高穿透力，集中在 4.5 - 5 kHz"
+    notch_center_hz: 4500.0
+    notch_q_factor: 2.2
+    target_cut_db: -4.0
+    attenuation_ratio: 0.90
+    hard_ceiling_pct: 8.0
+
+  sfx_retro_coin_jump:
+    description: "復古像素跳躍金幣音效：頻率偏中高頻 3.2 kHz，允許較高天花板"
+    notch_center_hz: 3200.0
+    notch_q_factor: 1.8
+    target_cut_db: -3.5
+    attenuation_ratio: 0.92
+    hard_ceiling_pct: 14.0
+
+  sfx_tactical_ui_voice:
+    description: "戰術語音/對話廣播/重要 UI 點擊：3.5 kHz 人聲清晰頻段嚴格避讓"
+    notch_center_hz: 3500.0
+    notch_q_factor: 2.5
+    target_cut_db: -5.0
+    attenuation_ratio: 0.80
+    hard_ceiling_pct: 6.0
+
+  sfx_subtle_ambient_clicks:
+    description: "微弱環境交互音/腳步聲/背包開關：適度避讓，維持自然聽感"
+    notch_center_hz: 4000.0
+    notch_q_factor: 1.6
+    target_cut_db: -3.0
+    attenuation_ratio: 0.88
+    hard_ceiling_pct: 7.0
+
+
+# ------------------------------------------------------------------------------
+# 閉環調參映射 (Closed-Loop Remediation Mappings) — 主觀試聽標籤映射至 Stage 2/3/4 指令
+# ------------------------------------------------------------------------------
+remediation_mappings:
+  fatigue_or_overcompressed:
+    description: "聽感疲勞或動態過度壓縮（Crest Factor 過低或逐小節 3-6kHz 過滿）"
+    stage2_arr_spec_action: "降低和聲聲部織度厚度 (Plane)，將次要合成器從 Poly 降為 Mono 或調降音量 -2.5dB"
+    stage3_manifest_action: "將 target_lufs 從 -16.0 調降為 -17.5 LUFS，減少極限壓縮"
+    stage4_repair_action: "啟用 3-6kHz 手術級 EQ 衰減，並調大 loop_crossfade_ms 至 300ms 緩衝"
+
+  bass_muddy_or_boomy:
+    description: "低頻混濁轟鳴（低頻佔比 > p90 或貝斯與大鼓嚴重打架）"
+    stage2_arr_spec_action: "修正貝斯手編制，將貝斯音域拉升半個八度，或改為側鏈 (Sidechain) 避讓"
+    stage3_manifest_action: "在 prompt 加入 'tight punchy low end with clean sub bass separation'"
+    stage4_repair_action: "提高 HDemucs 分軌之 other_highpass_hz 至 2400 Hz，防止其他聲部低頻洩漏"
+
+  sfx_masked_in_gameplay:
+    description: "遊戲前景音效被 BGM 遮蔽（presence_3to6k_hz_pct 超過合成門檻）"
+    stage2_arr_spec_action: "將主奏樂器 (Line) 移出 3-6 kHz 頻段，改在 1.5-2.5 kHz 發揮"
+    stage3_manifest_action: "在 manifest qa 配置中調低 max_sfx_zone_pct"
+    stage4_repair_action: "以 SFX 實測中心頻率為基準，施加 -4.5 dB 的動態 Notch 濾波"
+
+  loop_seam_abrupt:
+    description: "循環接縫處有明顯突躍或聽感節奏斷裂"
+    stage2_arr_spec_action: "檢查第 1 小節與最後 1 小節和弦走向，確保終止式和弦自然解決回主和弦"
+    stage3_manifest_action: "增加 duration_seconds 的餘裕 (+0.6s slack)，提供更大的 zero-crossing 搜尋半徑"
+    stage4_repair_action: "觸發 run_qa_and_auto_repair 進行首尾 1 小節 seamless inpaint 重繪"
