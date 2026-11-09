@@ -28,6 +28,18 @@ def num_samples(audio: np.ndarray) -> int:
     return cf.shape[1]
 
 
+def peak_normalize(audio: np.ndarray, ceiling_db: float = -1.0) -> tuple[np.ndarray, float]:
+    """Normalize peak amplitude to ceiling_db (safe fallback for ultra-short SFX < 3s)."""
+    cf, was_1d, was_cf = to_cf(audio)
+    target_peak = 10.0 ** (ceiling_db / 20.0)
+    current_peak = float(np.max(np.abs(cf)))
+    if current_peak < 1e-9:
+        return audio, 0.0
+    gain = target_peak / current_peak
+    gain_db = float(20.0 * np.log10(gain))
+    return from_cf((cf * gain).astype(cf.dtype), was_1d, was_cf), gain_db
+
+
 def from_cf(cf_audio: np.ndarray, was_1d: bool, was_cf: bool) -> np.ndarray:
     if was_1d:
         return cf_audio[0]
@@ -219,14 +231,8 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
     else:
         low_pct, mid_pct, sfx_pct = 33.3, 33.3, 33.3
 
-    # Seam continuity check
-    seam_ms = int(sr * 0.02)
-    if len(mono) > 2 * seam_ms and seam_ms > 0:
-        head = mono[:seam_ms]
-        tail = mono[-seam_ms:]
-        seam_jump = float(abs(np.mean(head) - np.mean(tail)) + abs(np.std(head) - np.std(tail)))
-    else:
-        seam_jump = 0.0
+    # Seam continuity check: maximum boundary sample jump between first and last sample
+    seam_jump = round(float(np.max(np.abs(cf[:, 0] - cf[:, -1]))), 4)
 
     # Bar dynamics
     samples_per_bar = max(1, int(round(bar_sec * sr)))

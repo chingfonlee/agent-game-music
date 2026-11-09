@@ -191,6 +191,27 @@ class TestDimension2EdgeCases(unittest.TestCase):
             slack = res['duration_seconds'] - res['target_loop_seconds']
             self.assertGreaterEqual(slack, 0.4)
 
+    def test_T2_2_short_sfx_and_long_loop_bounds(self):
+        """T2.2: 極短 (0.5s) SFX 峰值正規化與超長 (60s) 主循環動態負載邊界測試。"""
+        from tests.dsp_core import peak_normalize
+
+        # 1. Ultra-short 0.5s SFX (22,050 samples)
+        sr = 44100
+        n_short = int(sr * 0.5)
+        t_short = np.linspace(0, 0.5, n_short, endpoint=False)
+        short_sfx = 0.1 * np.sin(2 * np.pi * 1000 * t_short)
+        normalized, gain_db = peak_normalize(short_sfx, ceiling_db=-1.0)
+        self.assertAlmostEqual(float(np.max(np.abs(normalized))), 10.0 ** (-1.0 / 20.0), places=3)
+        self.assertGreater(gain_db, 10.0, "Should amplify weak 0.1 peak to -1.0 dBFS")
+
+        # 2. Ultra-long 60s loop (120 BPM, 30 bars = 2,646,000 samples)
+        n_long = int(sr * 60.0)
+        t_long = np.linspace(0, 60.0, n_long, endpoint=False)
+        long_loop = np.stack([0.3 * np.sin(2 * np.pi * 120 * t_long), 0.3 * np.sin(2 * np.pi * 120 * t_long)], axis=0)
+        long_diag = compute_diagnostics(long_loop, sr, bar_sec=2.0)
+        self.assertEqual(len(long_diag['bars']), 30, "Should compute exactly 30 bars for 60s at 120 BPM")
+        self.assertEqual(long_diag['duration_seconds'], 60.0)
+
     def test_T2_3_ambient_drone_without_transients(self):
         """T2.3: 純長音氛圍音樂 (Drone/Ambient) 無明顯鼓點起音容錯測試。"""
         # Continuous smooth sine wave with zero transients
