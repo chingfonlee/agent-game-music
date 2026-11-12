@@ -1,5 +1,5 @@
 ---
-name: colab-audio-studio-mcp
+name: agent-game-music
 description: >-
   End-to-end game audio production workflow combining scene-first game music
   design (`sora16bit/codex-game-music-skill`), A/B arrangement specs (`ARR-SPEC`
@@ -28,8 +28,8 @@ Never jump straight into opening a Colab GPU session from a raw user prompt. Alw
 | **Stage 3: Prompt Compilation & Manifest** | `yzfly/awesome-music-prompts` + `audio_studio_mcp.prompts` | [examples/sample_manifest.json](./examples/sample_manifest.json) → `manifest.json` | Compile `ARR-SPEC` into natural English sentences ($\le 45$ words, 100% instrumental, zero vocal words, explicit `"starting immediately at full intensity from beat one"` for loops) + 4-field structured SFX + `qa` & `post` configs. |
 | **Stage 4: Colab L4 Generation + Pre-Download Auto-QA & Repair** | `kanaworksai-hue/audio-studio-mcp` + `Stability-AI/stable-audio-3` (`77e0398`) | `results/*.wav` + `verification.json` + `04_critique_and_delivery_report.md` | Run 8-step SDPA inference on Colab L4, execute **bar-by-bar QA diagnostics & on-GPU auto-repair BEFORE packaging/downloading**, verify SHA-256 + QA pass locally, and guarantee `colab stop`. |
 
-> **When to use `colab-audio-studio-mcp` vs. `colab-minimax-music3`**:
-> - Use **`colab-audio-studio-mcp`** for **game BGM loops (10–60s)**, **adaptive state variations (`edit_variation`)**, **outro extensions (`edit_continue`)**, **bar-level inpainting (`edit_inpaint`)**, and **sound effects (SFX, 1–15s)**.
+> **When to use `agent-game-music` vs. `colab-minimax-music3`**:
+> - Use **`agent-game-music`** for **game BGM loops (10–60s)**, **adaptive state variations (`edit_variation`)**, **outro extensions (`edit_continue`)**, **bar-level inpainting (`edit_inpaint`)**, and **sound effects (SFX, 1–15s)**.
 > - Use **`colab-minimax-music3`** when you need **full-length 3–5 minute multi-section songs** (Intro → Verse → Chorus → Solo → Outro) or tracks with vocal singing.
 
 ---

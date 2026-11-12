@@ -77,7 +77,7 @@ class TestDimension3CloudLifecycleFailsafe(unittest.TestCase):
         """T3.3: 靜態程式碼審查：確認 supervise_template.py 的 finally 區塊包含 stop 呼叫。"""
         from pathlib import Path
 
-        template_path = Path(".agents/skills/colab-audio-studio-mcp/scripts/supervise_template.py")
+        template_path = Path(".agents/skills/agent-game-music/scripts/supervise_template.py")
         if not template_path.exists():
             template_path = Path("skills_export/claude-code/colab-audio-studio-mcp/scripts/supervise_template.py")
         self.assertTrue(template_path.exists(), f"Template not found at {template_path}")

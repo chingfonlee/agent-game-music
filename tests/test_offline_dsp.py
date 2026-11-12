@@ -255,7 +255,7 @@ class TestDimension4ContractCompliance(unittest.TestCase):
         """T4.2: 檢驗 sample_manifest.json 是否完整具備 v4 規範欄位。"""
         manifest_path = Path("examples/sample_manifest.json")
         if not manifest_path.exists():
-            manifest_path = Path(".agents/skills/colab-audio-studio-mcp/examples/sample_manifest.json")
+            manifest_path = Path(".agents/skills/agent-game-music/examples/sample_manifest.json")
         self.assertTrue(manifest_path.exists(), f"sample_manifest.json not found at {manifest_path}")
 
         with open(manifest_path, encoding="utf-8") as f:

@@ -29,3 +29,8 @@ packs/
 Thumbs.db
 .vscode/
 .idea/
+
+# Large Local Generation Batches (excluded from Git to prevent repo bloat)
+outputs/game-audio-2026-11-09-bgm-60-batch/
+outputs/game-audio-2026-11-09-student-cycling-class/
+outputs/game-audio-2026-11-10-tk74-route-sfx/

@@ -21,9 +21,9 @@ class TestDimension4AgentCompatibility(unittest.TestCase):
     def test_T4_1_claude_code_non_interactive_compliance(self):
         """T4.1: 檢驗所有執行腳本皆無任何阻塞式 input() 呼叫，且進度日誌均帶有 flush=True。"""
         scripts_to_check = [
-            self.root / ".agents/skills/colab-audio-studio-mcp/scripts/supervise_template.py",
-            self.root / ".agents/skills/colab-audio-studio-mcp/scripts/generate_remote_template.py",
-            self.root / ".agents/skills/colab-audio-studio-mcp/scripts/job_remote_template.py",
+            self.root / ".agents/skills/agent-game-music/scripts/supervise_template.py",
+            self.root / ".agents/skills/agent-game-music/scripts/generate_remote_template.py",
+            self.root / ".agents/skills/agent-game-music/scripts/job_remote_template.py",
         ]
         for script in scripts_to_check:
             self.assertTrue(script.exists(), f"Script {script} not found")
@@ -72,7 +72,7 @@ class TestDimension4AgentCompatibility(unittest.TestCase):
 
     def test_T4_3_tri_directory_template_synchronization(self):
         """T4.3: 檢驗 .agents/skills 與 skills_export/ 兩大封裝之腳本模板是否 100% 保持同步。"""
-        canonical_dir = self.root / ".agents/skills/colab-audio-studio-mcp/scripts"
+        canonical_dir = self.root / ".agents/skills/agent-game-music/scripts"
         claude_dir = self.root / "skills_export/claude-code/colab-audio-studio-mcp/scripts"
         codex_dir = self.root / "skills_export/codex/colab-game-audio-skill/scripts"
 
