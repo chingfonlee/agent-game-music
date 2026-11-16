@@ -112,9 +112,10 @@ Configured via the `"qa"` object on each item in `manifest.json` and executed au
 | **B. Tri-State QA Architecture** | `"qa_report": {"status": "passed" / "warning" / "failed"}` | Replaces rigid boolean with a three-tier status model. Non-blocking degradations produce `"warning"` with actionable `status_reasons`, while fatal issues trigger `"failed"`. |
 | **C. Relative Mid-Frequency Climax Ratio** | `"qa": {"min_climax_relative_mid_ratio": 1.15}` | Replaces arbitrary absolute mid-frequency percentage with a dynamic relative ratio (`climax_mid / body_mid >= 1.15`), correctly adapting to bass-heavy styles (heavy metal, synthwave, trap) where low frequencies dominate. |
 | **D. Universal SFX Pocket Protection** | Auto-applied to all BGM roles (`bgm_loop`, `bgm_outro`, `bgm_stem_layer`) | Outro and stem layers often contain high-frequency resonance or long reverb. The `3000–6000 Hz` notch check is extended across all music tracks, dynamically compressing the SFX band to leave full acoustic space for game horns, timers, and bells. |
-| **E. Best-of-N Reranking** | `"candidates": 3` on a `"generate"` item | Generates N seeds (`seed`, `seed+101`, `seed+202`), scores each candidate via `bar_chroma_similarity`, `intro_drop_db`, `seam_chroma_similarity`, and picks the winner. |
+| **E. Best-of-N Reranking & Top-K Audition** | `"candidates": 3`, `"export_top_k": 2`, `"rerank_weights": {...}` | Generates N seeds (`seed`, `seed+101`, `seed+202`), scores each candidate via `bar_chroma_similarity`, `bar_chroma_novelty`, `tempo_stability`, `groove_contrast_db`, `intro_drop_db`, and `onset_clarity_db`. Exports Top-K runner-ups (`_cand2_seed*.wav`) for human A/B auditioning. |
 | **F. Smart Loop Alignment (±1 Beat Radius)** | Extended alignment search with Inpaint fallback | Searches ±1 beat around detected beat-1 onset for optimal chroma & RMS seam match; snaps to zero-crossing; falls back to seamless inpaint crossfade if boundary correlation remains weak. |
 | **G. HDemucs Sample-Locked Stem Layer** | `"type": "stem_layer"`, `"source_id"`, `"stem_weights"`, `"other_lowpass_hz"` | Derives drums/bass/filtered-guitar stems from the master loop with zero lag (`measured_onset_lag_ms == 0.0`), exporting ready-to-mix vertical game audio layers. |
+| **H. Arrangement Richness & Stability Gates** | `"negative_prompt"`, `"type": "edit_inpaint"` turnaround, `min_tempo_stability`, `min_bar_chroma_novelty`, `min_stereo_correlation` | Uses `edit_inpaint` on the final 1–2 bars to inject drum fills / counter-melody turnarounds without losing Beat-1 punch; enforces `negative_prompt` and checks `tempo_stability` (onset autocorrelation), `bar_chroma_novelty` (anti-stagnation), `crest_factor_db`, and `stereo_correlation`. |
 
 > [!NOTE]
 > Prefer `stem_layer` over `edit_variation` for pause/low-intensity states that must cross-fade with the main loop at any moment: `edit_variation` regenerates audio and is not guaranteed to be beat-aligned, while `stem_layer` is derived from the same samples.
@@ -127,7 +128,7 @@ Configured via the `"qa"` object on each item in `manifest.json` and executed au
    e.g., `outputs/game-audio-<YYYY-MM-DD>-<scene-name>/`.
 2. **Author Stage 1–3 Planning Files Locally (Do NOT Start Colab Yet)**:
    - Copy and customize [examples/01_bgm_spec_card_template.md](./examples/01_bgm_spec_card_template.md) → `01_bgm_spec_card.md`.
-   - Copy and customize [examples/02_arr_spec_ab_template.yaml](./examples/02_arr_spec_ab_template.yaml) → `02_arr_spec_ab.yaml`.
+   - Copy and customize [examples/02_arr_spec_ab_template.yaml](./examples/02_arr_spec_ab_template.yaml) → `02_arr_spec_ab.yaml` (including `harmonic_progression`, `register_map`, `negative_prompt_default`, and `rerank_weights`).
    - Copy and customize [examples/sample_manifest.json](./examples/sample_manifest.json) → `manifest.json`.
    - Present the Stage 1–3 plan to the user for confirmation.
 3. **Deploy the 3 Execution Scripts into the Batch Directory**:
@@ -139,3 +140,14 @@ Configured via the `"qa"` object on each item in `manifest.json` and executed au
    - Run `python -u supervise.py`. It provisions Colab L4, runs remote generation + pre-download auto-QA/repair, verifies `qa_report.passed == True` + SHA-256 + WAV headers locally, and **guarantees `colab stop`** in `finally:`.
 5. **Write `04_critique_and_delivery_report.md`**:
    - Summarize the `initial_diagnostics` vs. `final_diagnostics` and `repairs_applied` from `verification.json` along with the 8-point `codex-game-music-skill` critique table.
+
+---
+
+## 6. Human-Preference Musicality Iteration Loop
+
+To steer generations toward human musical taste rather than technical metrics alone:
+1. **Audition Top-K & A/B Variants**: Set `"export_top_k": 2` (or `3`) on key `bgm_loop` items so the downloaded `.zip` includes both the automated winner and runner-up seeds (`_cand2_seed*.wav`), alongside Version A/B and any `edit_inpaint` turnaround variants.
+2. **Record Feedback**: Copy [examples/03_preference_log_template.yaml](./examples/03_preference_log_template.yaml) → `03_preference_log.yaml` in the batch directory and log which candidate won human preference, 1–5 musicality scores, and specific bar-level notes (e.g., *"Bars 11–12 need a drum fill"* or *"Melody is too repetitive"*).
+3. **Translate into Next-Round Controls**:
+   - Update `prompt` / `negative_prompt` (e.g., add `syncopated tom-snare fill`, `twin-lead harmony turnaround`, or `monotonous repetition` in `negative_prompt`).
+   - Tune `qa.rerank_weights` in `manifest.json` (e.g., raise `chroma_novelty_bonus` if the user wants more harmonic movement, or `groove_contrast_bonus` for stronger rhythmic punch) before running the next iteration.
