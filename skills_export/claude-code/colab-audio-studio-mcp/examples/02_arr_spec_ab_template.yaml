@@ -11,38 +11,60 @@ meta:
   loop_seconds_exact: 24.0
   generate_seconds_with_crossfade: 24.2
   crossfade_ms: 200.0
-  sample_rate: 48000
+  sample_rate: 44100
 
 shared_invariants:
   scene: "<場景描述>"
   cadence_function: "<BPM 與玩家節奏對應關係，從第 1 拍即滿編推進>"
-  negative_space: "控制 3-6 kHz 頻段能量 <= 8.0%，保留遊戲 SFX 穿透空間"
+  harmonic_progression: "<和弦進行與調式張力，例如 i - bVI - bIII - bVII (Aeolian) 或 Dorian 轉折>"
+  register_map:
+    low_lt250: "<Kick + Sub Bass 鎖定底盤>"
+    mid_250to3k: "<Lead 與 Harmony 錯開八度或音色質地，避免同頻打架>"
+    sfx_pocket_3to6k: "控制 3-6 kHz 頻段能量 <= 8.0%，保留遊戲 SFX 穿透空間"
   vocal_policy: "100% Instrumental (嚴禁任何 vocal/choir/voice/scream 字眼)"
+  negative_prompt_default: "vocals, choir, voice, scream, crowd noise, muddy mix, harsh distortion, clipping, tempo drift, slow fade in, ambient silence"
 
 qa_gates:
   loop_max_intro_drop_db: 2.5
   loop_max_seam_jump: 0.02
   bgm_max_sfx_zone_3to6k_pct: 8.0
-  outro_min_climax_mid_pct: 20.0
+  loop_min_tempo_stability: 0.55
+  loop_min_bar_chroma_novelty: 0.02
+  min_stereo_correlation: 0.05
+  outro_min_climax_relative_mid_ratio: 1.15
   outro_max_climax_drop_db: 3.5
+
+rerank_weights:
+  intro_drop_penalty: 4.0
+  bar_spread_penalty: 2.5
+  sfx_zone_penalty: 3.0
+  chroma_sim_bonus: 12.0
+  onset_clarity_bonus: 1.5
+  tempo_stability_bonus: 8.0
+  groove_contrast_bonus: 0.8
+  chroma_novelty_bonus: 10.0
 
 variants:
   version_A:
     id: "02_bgm_main_loop_A"
     concept: "<版本 A 編曲概念>"
     roster:
-      lead: "<主奏樂器>"
-      harmony: "<和聲樂器>"
+      lead: "<主奏樂器與音域>"
+      harmony: "<和聲樂器與對位層次>"
       bass: "<貝斯樂器>"
       drums: "<鼓組與打擊樂>"
     compiled_sa3_prompt: "<45字以內英文自然句，含 starting immediately at full intensity from beat one>"
+    turnaround_inpaint:
+      enabled: true
+      target_bars: "last 2 bars (e.g., Bars 11-12)"
+      prompt: "<針對最後 1-2 小節的過門加花 / 對位旋律 / 張力回轉提示詞>"
 
   version_B:
     id: "03_bgm_main_loop_B"
     concept: "<版本 B 對照編曲概念>"
     roster:
-      lead: "<主奏樂器>"
-      harmony: "<和聲樂器>"
+      lead: "<主奏樂器與音域>"
+      harmony: "<和聲樂器與對位層次>"
       bass: "<貝斯樂器>"
       drums: "<鼓組與打擊樂>"
     compiled_sa3_prompt: "<45字以內英文自然句，含 at full intensity from beat one>"

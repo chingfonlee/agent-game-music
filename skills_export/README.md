@@ -67,11 +67,13 @@ Copy the `colab-game-audio-skill` folder into your agent's skill path:
 
 ---
 
-## 3. Core Architectural Highlights (v4)
+## 3. Core Architectural Highlights (v4.1)
 
-Both packages include all v4 enhancements verified on Colab L4:
+Both packages (while keeping the Antigravity version at `.agents/skills/agent-game-music/`) include all v4.1 enhancements verified on Colab L4:
 - **44.1 kHz Native Workflow**: Bypasses multiple 48k/44.1k resampling passes; preserves phase and guarantees exact sample synchronization (`1,058,400 samples`).
 - **Tri-State QA System**: `passed` / `warning` / `failed` reporting.
 - **Relative Mid-Ratio Climax Gate**: $\frac{\text{climax\_mid}}{\text{body\_mid}} \ge 1.15$ adapts to heavy metal, trap, and bass-heavy genres.
 - **Universal SFX Frequency Pocket**: Dynamic 3–6 kHz notch protection across loops, outros, and stem layers.
 - **Smart Alignment with ±1 Beat Radius**: Zero-crossing snapping with automatic seamless Inpaint fallback.
+- **Arrangement Richness & Stability QA**: `edit_inpaint` turnaround fills, `negative_prompt` defaults, `tempo_stability` (onset autocorrelation), `bar_chroma_novelty`, `groove_contrast_db`, `stereo_correlation`, and `crest_factor_db`.
+- **Top-K Audition & Human-Preference Loop**: `"export_top_k": 2` exports runner-up candidates alongside the winner, paired with `examples/03_preference_log_template.yaml` and `qa.rerank_weights`.

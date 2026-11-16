@@ -96,9 +96,17 @@ python -u supervise.py
 ```
 
 When execution completes:
-1. Confirm all assets reported `qa_report.status: "passed"` in `verification.json`.
-2. Verify local SHA-256 integrity and audio playback.
-3. Write `04_v4_validation_report.md` summarizing diagnostics.
+1. Confirm all assets reported `qa_report.status: "passed"` (or `"warning"`) in `verification.json`.
+2. Verify local SHA-256 integrity and audio playback (including Top-K runner-ups `_cand2_seed*.wav` when `"export_top_k": 2` is set).
+3. Write `04_v4_validation_report.md` summarizing diagnostics (`tempo_stability`, `bar_chroma_novelty`, `groove_contrast_db`, `stereo_correlation`, `crest_factor_db`).
+
+---
+
+## Arrangement Richness, Stability QA & Human-Preference Iteration (v4.1)
+
+- **Turnaround Richness (`edit_inpaint`)**: Add a follow-up `edit_inpaint` item targeting the last 1–2 bars of a loop to inject drum fills and counter-melody turnarounds while keeping Beat-1 intensity intact.
+- **Stability Gates & Negative Prompt**: Always populate `"negative_prompt"` (e.g., `"vocals, choir, muddy mix, clipping, tempo drift, slow fade in"`) and configure `min_tempo_stability`, `min_bar_chroma_novelty`, and `min_stereo_correlation` in `qa`.
+- **Top-K Audition & Preference Loop**: Set `"export_top_k": 2` on `bgm_loop` items to pack runner-up candidates alongside the winner. Log human listening feedback in `examples/03_preference_log_template.yaml` → `03_preference_log.yaml` and translate it into `prompt` deltas and `qa.rerank_weights` for the next round.
 
 ---
 

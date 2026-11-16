@@ -48,8 +48,10 @@ When a user requests game music, loops, or sound effects, you must follow this 4
 - **Scene Recipes**: Read [`scene-recipes.md`](./scene-recipes.md) for pre-calibrated musical formulas (BPM, scales, instrumentation, SFX pockets).
 - **Execution Scripts**:
   - `scripts/supervise_template.py` → Provisions Colab L4, monitors progress, auto-downloads, shuts down VM.
-  - `scripts/generate_remote_template.py` → Generates with Best-of-3, separates with HDemucs, executes bar-by-bar QA and inpaint/EQ repair before download.
+  - `scripts/generate_remote_template.py` → Generates with Best-of-N (`export_top_k`), separates with HDemucs, executes bar-by-bar QA (`tempo_stability`, `bar_chroma_novelty`, `groove_contrast_db`, `stereo_correlation`, `crest_factor_db`) and inpaint/EQ repair before download.
   - `scripts/job_remote_template.py` → Sets up PyTorch 2.7.1, Hugging Face token, and Python environment.
+- **Human-Preference Iteration**:
+  - `examples/03_preference_log_template.yaml` → Logs Top-K human audition scores and translates them into next-round `prompt` deltas and `qa.rerank_weights`.
 
 ---
 

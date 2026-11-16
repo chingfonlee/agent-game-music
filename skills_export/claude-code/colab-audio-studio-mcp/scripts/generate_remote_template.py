@@ -364,8 +364,13 @@ def measure_onset_lag_ms(ref_mono: np.ndarray, test_mono: np.ndarray, sr: int, m
     return float(best_lag)
 
 
-def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dict:
-    """Compute whole-track and bar-by-bar acoustic, spectral, onset clarity & Chroma loop telemetry."""
+def compute_diagnostics(
+    audio: np.ndarray,
+    sr: int,
+    bar_sec: float = 2.0,
+    target_bpm: float | None = None,
+) -> dict:
+    """Compute whole-track and bar-by-bar acoustic, spectral, groove, tempo & Chroma loop telemetry."""
     cf, _, _ = to_cf(audio)
     mono = cf.mean(axis=0).astype(np.float64)
     n = len(mono)
@@ -373,6 +378,15 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
     overall_rms = float(np.sqrt(np.mean(mono ** 2)) + 1e-9)
     overall_rms_db = round(float(20.0 * np.log10(overall_rms)), 2)
     overall_peak_db = round(float(20.0 * np.log10(np.max(np.abs(mono)) + 1e-9)), 2)
+    crest_factor_db = round(float(overall_peak_db - overall_rms_db), 2)
+
+    if cf.shape[0] >= 2:
+        l_ch = cf[0].astype(np.float64) - np.mean(cf[0])
+        r_ch = cf[1].astype(np.float64) - np.mean(cf[1])
+        denom = float(np.linalg.norm(l_ch) * np.linalg.norm(r_ch))
+        stereo_correlation = round(float(np.dot(l_ch, r_ch) / denom), 4) if denom > 1e-12 else 1.0
+    else:
+        stereo_correlation = 1.0
 
     spec_sq = np.abs(np.fft.rfft(mono)) ** 2
     freqs = np.fft.rfftfreq(n, 1.0 / sr)
@@ -380,19 +394,49 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
     low_pct = round(float(100.0 * np.sum(spec_sq[freqs < 250.0]) / tot_e), 2)
     mid_pct = round(float(100.0 * np.sum(spec_sq[(freqs >= 250.0) & (freqs < 3000.0)]) / tot_e), 2)
     sfx_zone_pct = round(float(100.0 * np.sum(spec_sq[(freqs >= 3000.0) & (freqs < 6000.0)]) / tot_e), 2)
+    spectral_centroid_hz = round(float(np.sum(freqs * spec_sq) / tot_e), 1)
 
     seam_jump = round(float(np.max(np.abs(cf[:, 0] - cf[:, -1]))), 4)
 
-    # Compute rhythmic onset clarity (90th vs 50th percentile of 20ms frame RMS differences)
+    # Compute rhythmic onset clarity, groove contrast & beat-grid tempo stability
     frame_len = max(1, int(sr * 0.02))
     n_frames = n // frame_len
+    tempo_stability = 0.0
     if n_frames > 4:
         f_rms = np.sqrt(np.mean(mono[:n_frames * frame_len].reshape(n_frames, frame_len) ** 2, axis=1) + 1e-12)
         f_db = 20.0 * np.log10(f_rms)
         onset_flux = np.maximum(0.0, np.diff(f_db))
         onset_clarity_db = round(float(np.percentile(onset_flux, 90)), 2)
+
+        # Autocorrelation of onset_flux around expected beat lag (50Hz frame rate)
+        flux_c = onset_flux - np.mean(onset_flux)
+        flux_energy = float(np.dot(flux_c, flux_c))
+        if flux_energy > 1e-12 and len(flux_c) > 60:
+            if target_bpm and float(target_bpm) > 0:
+                beat_frames = int(round((60.0 / float(target_bpm)) * 50.0))
+                lag_lo = max(10, int(round(beat_frames * 0.94)))
+                lag_hi = min(len(flux_c) // 2, int(round(beat_frames * 1.06)))
+            else:
+                lag_lo = 15   # 0.30s (200 BPM)
+                lag_hi = min(len(flux_c) // 2, 50)  # 1.00s (60 BPM)
+            if lag_hi >= lag_lo:
+                ac_vals = [
+                    float(np.dot(flux_c[:-lag], flux_c[lag:]) / flux_energy)
+                    for lag in range(lag_lo, lag_hi + 1)
+                ]
+                tempo_stability = round(float(max(0.0, min(1.0, max(ac_vals)))), 4)
     else:
         onset_clarity_db = 0.0
+
+    # 50ms frame groove contrast (p85 - p25)
+    g_len = max(1, int(sr * 0.05))
+    n_g = n // g_len
+    if n_g > 8:
+        g_rms = np.sqrt(np.mean(mono[:n_g * g_len].reshape(n_g, g_len) ** 2, axis=1) + 1e-12)
+        g_db = 20.0 * np.log10(g_rms)
+        groove_contrast_db = round(float(np.percentile(g_db, 85) - np.percentile(g_db, 25)), 2)
+    else:
+        groove_contrast_db = 0.0
 
     # Compute head-vs-tail Chroma harmonic similarity across the first/last bar
     win_chroma = min(n // 2, int(round(bar_sec * sr)))
@@ -405,12 +449,15 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
 
     n_bars = max(1, int(round(dur / bar_sec)))
     bars = []
+    bar_chromas = []
     for b in range(n_bars):
         i0 = int(round(b * bar_sec * sr))
         i1 = min(n, int(round((b + 1) * bar_sec * sr)))
         seg = mono[i0:i1]
         if len(seg) < 64:
             continue
+        if len(seg) >= 512:
+            bar_chromas.append(compute_chroma_vector(seg, sr))
         b_rms_db = round(float(20.0 * np.log10(np.sqrt(np.mean(seg ** 2)) + 1e-9)), 2)
         b_spec = np.abs(np.fft.rfft(seg)) ** 2
         b_freqs = np.fft.rfftfreq(len(seg), 1.0 / sr)
@@ -426,6 +473,12 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
             'sfx_zone_pct': b_sfx,
         })
 
+    if len(bar_chromas) >= 2:
+        novs = [1.0 - float(np.dot(bar_chromas[i], bar_chromas[i + 1])) for i in range(len(bar_chromas) - 1)]
+        bar_chroma_novelty = round(float(np.mean(novs)), 4)
+    else:
+        bar_chroma_novelty = 0.0
+
     intro_drop_db = 0.0
     max_bar_spread_db = 0.0
     if len(bars) >= 6:
@@ -439,12 +492,18 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
         'duration_seconds': round(dur, 2),
         'overall_rms_db': overall_rms_db,
         'overall_peak_db': overall_peak_db,
+        'crest_factor_db': crest_factor_db,
+        'stereo_correlation': stereo_correlation,
         'low_lt250_pct': low_pct,
         'mid_250to3k_pct': mid_pct,
         'sfx_zone_3to6k_pct': sfx_zone_pct,
+        'spectral_centroid_hz': spectral_centroid_hz,
         'seam_jump': seam_jump,
         'onset_clarity_db': onset_clarity_db,
+        'groove_contrast_db': groove_contrast_db,
+        'tempo_stability': tempo_stability,
         'bar_chroma_similarity': bar_level_chroma_sim,
+        'bar_chroma_novelty': bar_chroma_novelty,
         'intro_drop_db': intro_drop_db,
         'max_bar_spread_db': max_bar_spread_db,
         'bars': bars,
@@ -452,15 +511,28 @@ def compute_diagnostics(audio: np.ndarray, sr: int, bar_sec: float = 2.0) -> dic
 
 
 def score_candidate_for_reranking(diag: dict, role: str, qa_cfg: dict) -> float:
-    """Optimization A: Multi-objective candidate scoring function for Best-of-N selection."""
+    """Multi-objective candidate scoring for Best-of-N selection with human-tunable rerank_weights."""
+    w = qa_cfg.get('rerank_weights') or {}
     if role == 'bgm_loop':
+        novelty = float(diag.get('bar_chroma_novelty', 0.0))
+        # Reward healthy harmonic movement up to ~0.18, penalize degenerate static loops (<0.02)
+        novelty_term = min(novelty, 0.18) * float(w.get('chroma_novelty_bonus', 10.0))
+        if novelty < 0.02:
+            novelty_term -= 5.0
+        phase_penalty = 8.0 if diag.get('stereo_correlation', 1.0) < 0.05 else 0.0
+        crest_penalty = 4.0 if diag.get('crest_factor_db', 8.0) < 5.0 else 0.0
         score = (
             100.0
-            - 4.0 * abs(diag['intro_drop_db'])
-            - 2.5 * diag['max_bar_spread_db']
-            - 3.0 * max(0.0, diag['sfx_zone_3to6k_pct'] - 6.0)
-            + 12.0 * diag['bar_chroma_similarity']
-            + 1.5 * diag['onset_clarity_db']
+            - float(w.get('intro_drop_penalty', 4.0)) * abs(diag['intro_drop_db'])
+            - float(w.get('bar_spread_penalty', 2.5)) * diag['max_bar_spread_db']
+            - float(w.get('sfx_zone_penalty', 3.0)) * max(0.0, diag['sfx_zone_3to6k_pct'] - 6.0)
+            + float(w.get('chroma_sim_bonus', 12.0)) * diag['bar_chroma_similarity']
+            + float(w.get('onset_clarity_bonus', 1.5)) * diag['onset_clarity_db']
+            + float(w.get('tempo_stability_bonus', 8.0)) * diag.get('tempo_stability', 0.0)
+            + float(w.get('groove_contrast_bonus', 0.8)) * min(diag.get('groove_contrast_db', 0.0), 12.0)
+            + novelty_term
+            - phase_penalty
+            - crest_penalty
         )
         return round(float(score), 2)
     elif role == 'bgm_outro':
@@ -553,10 +625,11 @@ def run_qa_and_auto_repair(
     qa_cfg = item.get('qa') or {}
     role = qa_cfg.get('role', 'generic')
     bar_sec = float(qa_cfg.get('bar_seconds', 2.0))
+    target_bpm = item.get('bpm')
     repairs = []
 
     proc_audio, proc_sr, post_info = apply_post_options(raw_audio.copy(), raw_sr, post_cfg)
-    initial_diag = compute_diagnostics(proc_audio, proc_sr, bar_sec=bar_sec)
+    initial_diag = compute_diagnostics(proc_audio, proc_sr, bar_sec=bar_sec, target_bpm=target_bpm)
     current_raw = raw_audio.copy()
     current_raw_sr = raw_sr
 
@@ -781,7 +854,7 @@ def run_qa_and_auto_repair(
             repairs.append(f"surgical_sfx_pocket_eq_3to6k(sfx_zone:{cur_diag['sfx_zone_3to6k_pct']}%)")
 
     # ─── THREE-TIER QA STATUS: passed | warning | failed ───
-    final_diag = compute_diagnostics(proc_audio, proc_sr, bar_sec=bar_sec)
+    final_diag = compute_diagnostics(proc_audio, proc_sr, bar_sec=bar_sec, target_bpm=target_bpm)
     status = 'passed'
     status_reasons = []
 
@@ -798,6 +871,16 @@ def run_qa_and_auto_repair(
         if final_diag['sfx_zone_3to6k_pct'] > max_sfx:
             status = 'warning' if status == 'passed' else status
             status_reasons.append(f"sfx_zone {final_diag['sfx_zone_3to6k_pct']}% > {max_sfx}%")
+        min_stereo = float(qa_cfg.get('min_stereo_correlation', 0.05))
+        if final_diag.get('stereo_correlation', 1.0) < min_stereo:
+            status = 'warning' if status == 'passed' else status
+            status_reasons.append(f"stereo_correlation {final_diag['stereo_correlation']} < {min_stereo}")
+        if 'min_tempo_stability' in qa_cfg and final_diag.get('tempo_stability', 1.0) < float(qa_cfg['min_tempo_stability']):
+            status = 'warning' if status == 'passed' else status
+            status_reasons.append(f"tempo_stability {final_diag['tempo_stability']} < {qa_cfg['min_tempo_stability']}")
+        if 'min_bar_chroma_novelty' in qa_cfg and final_diag.get('bar_chroma_novelty', 1.0) < float(qa_cfg['min_bar_chroma_novelty']):
+            status = 'warning' if status == 'passed' else status
+            status_reasons.append(f"bar_chroma_novelty {final_diag['bar_chroma_novelty']} < {qa_cfg['min_bar_chroma_novelty']}")
 
     elif role == 'bgm_outro':
         c_start = float(qa_cfg.get('climax_start_sec', 24.0))
@@ -960,37 +1043,48 @@ def main():
             # Optimization A: Best-of-N candidate sampling & multi-objective reranking
             if n_candidates > 1:
                 cand_seeds = [seed + i * 101 for i in range(n_candidates)]
-                best_score = -1e9
-                best_seed = seed
-                best_raw = None
+                cand_pool = []
                 cand_scores = {}
                 for c_seed in cand_seeds:
                     res = backend._generate([c_seed], req)
                     c_audio, c_sr = res.audios[0], backend.sample_rate
                     c_proc, c_psr, _ = apply_post_options(c_audio.copy(), c_sr, post_cfg)
-                    c_diag = compute_diagnostics(c_proc, c_psr, bar_sec=bar_sec)
+                    c_diag = compute_diagnostics(c_proc, c_psr, bar_sec=bar_sec, target_bpm=item.get('bpm'))
                     c_score = score_candidate_for_reranking(c_diag, role, qa_cfg)
                     cand_scores[str(c_seed)] = {
                         'score': c_score,
                         'intro_drop_db': c_diag['intro_drop_db'],
                         'max_bar_spread_db': c_diag['max_bar_spread_db'],
                         'bar_chroma_similarity': c_diag['bar_chroma_similarity'],
+                        'bar_chroma_novelty': c_diag['bar_chroma_novelty'],
+                        'tempo_stability': c_diag['tempo_stability'],
+                        'groove_contrast_db': c_diag['groove_contrast_db'],
                         'onset_clarity_db': c_diag['onset_clarity_db'],
                     }
-                    if c_score > best_score:
-                        best_score = c_score
-                        best_seed = c_seed
-                        best_raw = c_audio
+                    cand_pool.append((c_score, c_seed, c_audio, c_proc, c_psr))
+                cand_pool.sort(key=lambda x: x[0], reverse=True)
+                best_score, best_seed, best_raw, _, _ = cand_pool[0]
                 raw_audio, raw_sr = best_raw, backend.sample_rate
+
+                export_top_k = max(1, min(len(cand_pool), int(item.get('export_top_k', 1))))
+                runner_ups = []
+                for rank_idx in range(1, export_top_k):
+                    r_score, r_seed, _, r_proc, r_psr = cand_pool[rank_idx]
+                    r_path = OUT / f"{item['id']}_cand{rank_idx + 1}_seed{r_seed}{ext}"
+                    post.write(r_path, r_proc, r_psr, fmt)
+                    extra_files_to_pack.append(r_path)
+                    runner_ups.append({'rank': rank_idx + 1, 'seed': r_seed, 'score': r_score, 'file': r_path.name})
+
                 extra_meta['best_of_n'] = {
                     'candidates_evaluated': n_candidates,
                     'winner_seed': best_seed,
                     'winner_score': best_score,
+                    'runner_ups_exported': runner_ups,
                     'candidate_metrics': cand_scores,
                 }
                 print(
                     f"BEST_OF_N {item['id']} n={n_candidates} winner_seed={best_seed} "
-                    f"score={best_score} candidates={json.dumps(cand_scores)}",
+                    f"score={best_score} top_k={export_top_k} candidates={json.dumps(cand_scores)}",
                     flush=True,
                 )
             else:

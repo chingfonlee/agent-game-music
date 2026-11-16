@@ -21,4 +21,5 @@ Add this file to your project root or `.claude/CLAUDE.md` to equip Claude Code w
 1. **Never start Colab without confirmation**: Always write `01_bgm_spec_card.md`, `02_arr_spec_ab.yaml`, and `manifest.json` first, and show them to the user.
 2. **Native 44.1 kHz**: Keep `"out_sr": 44100` across all items in `manifest.json` (avoids resampling losses between Stable Audio 3 and HDemucs).
 3. **Loop Slack Math**: Always add `+0.4s` to `duration_seconds` for loops so smart zero-crossing alignment has room to search.
-4. **Guaranteed Stop**: `supervise.py` has an automatic `finally: colab stop` block. Do not cancel the process abruptly without checking `colab sessions`.
+4. **Richness, Stability & Top-K**: Always set `negative_prompt` on music items; use `"export_top_k": 2` to audition runner-ups, `edit_inpaint` on the final 1–2 bars for turnarounds, and `03_preference_log.yaml` + `qa.rerank_weights` for human-preference iteration.
+5. **Guaranteed Stop**: `supervise.py` has an automatic `finally: colab stop` block. Do not cancel the process abruptly without checking `colab sessions`.

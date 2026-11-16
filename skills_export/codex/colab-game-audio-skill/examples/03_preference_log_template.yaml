@@ -1,0 +1,34 @@
+# Step 5 (Iteration): 人類偏好與音樂性回饋紀錄表 (Preference Log Template)
+# 根據試聽結果（含 export_top_k 候選音檔）記錄偏好，由 Agent 轉譯為下一輪 Prompt 與 rerank_weights 調整
+
+round: 1
+batch_dir: "outputs/game-audio-<YYYY-MM-DD>-<scene-name>"
+
+audition_ranking:
+  preferred_variant: "02_bgm_main_loop_A"   # 或指定 _cand2_seedXXXX / 03_bgm_main_loop_B
+  runner_up: "02_bgm_main_loop_A_cand2_seed2303"
+  scores_1to5:
+    groove_and_drive: 4
+    melody_memorability: 3
+    arrangement_richness: 3
+    mix_clarity_and_sfx_space: 5
+
+human_feedback:
+  liked:
+    - "<例如：A 版本的雙踩大鼓推進感很強，節奏很穩>"
+  disliked_or_missing:
+    - "<例如：中後段旋律線偏重複，希望最後 2 小節有過門加花或對位吉他>"
+  bar_notes:
+    - bars: "11-12"
+      note: "<例如：加入鼓組過門與雙吉他和聲轉折回第 1 拍>"
+
+next_round_translations:
+  prompt_deltas:
+    add_keywords: ["twin-lead harmony turnaround", "syncopated tom-snare fill"]
+    negative_prompt_additions: ["monotonous repetition", "harsh upper-mid resonance"]
+  qa_and_rerank_overrides:
+    min_bar_chroma_novelty: 0.03
+    rerank_weights:
+      chroma_novelty_bonus: 14.0
+      groove_contrast_bonus: 1.0
+      tempo_stability_bonus: 8.0
